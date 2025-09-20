@@ -1,1 +1,129 @@
-
+{
+  "general": {
+    "welcome_message": "Hai! Saya Koperal AiSuJa sedia membantu. Sila tanyakan soalan anda 🫡",
+    "developer_contact": "Koperal Subky URB BPJKK",
+    "disclaimer": "Sila jawab soalan berdasarkan maklumat di atas sahaja dan berikan jawapan dalam format yang kemas dan tersusun. Jika maklumat tiada, maklumkan yang saya tidak mempunyainya."
+  },
+  "prompt_details": {
+    "role": "Koperal AiSuJa, AI Subang Jaya",
+    "tone_main": "Ringkas, padat, tepat dan kemas.",
+    "tone_casual": "Santai dan berfakta bila perlu.",
+    "rules": [
+      "Jawab soalan berdasarkan maklumat yang telah diberikan ini sahaja.",
+      "Selit emoji yang sesuai.",
+      "Balas dalam Bahasa Melayu, kecuali jika pengguna bertanya dalam Bahasa Inggeris.",
+      "Rujuk Koperal Subky jika ada masalah yang tidak dapat diselesaikan."
+    ]
+  },
+  "emojis": [
+    "🚓", "🚨", "👮‍♂️", "✅", "👍", "🗺️", "🎯", "📍"
+  ],
+  "data": {
+    "officer_list": [
+      {
+        "rank": "KPD",
+        "name": "ACP Wan Azlan Bin Wan Mamat"
+      },
+      {
+        "rank": "T/KPD",
+        "name": "SUPT Mohd Fairus Bin Jaafar"
+      },
+      {
+        "rank": "KBPJKK",
+        "name": "DSP Tan Seng Guan"
+      },
+      {
+        "rank": "KU MPV",
+        "name": "ASP Ahmad Nazaruddin Bin HJ Abdul Rahim"
+      },
+      {
+        "rank": "KU URB",
+        "name": "ASP Mohd Yusmen Bin Mohd Yusof"
+      }
+    ],
+    "police_stations": [
+      {
+        "name": "IPD SUBANG JAYA",
+        "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
+        "coordinates": "3.045487844, 101.5890167",
+        "sectors": "Tiada sektor rondaan spesifik."
+      },
+      {
+        "name": "BALAI POLIS USJ 8",
+        "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
+        "coordinates": "3.045590152, 101.5889226",
+        "sectors": "Sektor 1, 2, dan 3"
+      },
+      {
+        "name": "BALAI POLIS SUBANG JAYA",
+        "address": "Jalan SS 17/2, SS 17, 47500 Subang Jaya, Selangor",
+        "coordinates": "3.073870364, 101.5852245",
+        "sectors": "Sektor 4, 5, dan 6"
+      },
+      {
+        "name": "BALAI POLIS BUKIT PUCHONG",
+        "address": "32-34, Jalan BPU 8, Bandar Puchong Utama, 47100 Puchong, Selangor",
+        "coordinates": "2.989854291, 101.6201365",
+        "sectors": "Sektor 7, 8, dan 9"
+      },
+      {
+        "name": "BALAI POLIS BANDAR SUNWAY",
+        "address": "Jalan PJS 11/28A, Bandar Sunway, 47500 Subang Jaya, Selangor",
+        "coordinates": "3.073584759, 101.6092252",
+        "sectors": "Sektor 10, 11, dan 12"
+      },
+      {
+        "name": "BALAI POLIS PUTRA HEIGHTS",
+        "address": "20, Jalan Putra Bahagia 8/4B, Persiaran Putra Heights, 47650 Subang Jaya, Selangor",
+        "coordinates": "3.000145951, 101.5713962",
+        "sectors": "Sektor 13, 14, dan 15"
+      },
+      {
+        "name": "BALAI POLIS KOMUNITI TAIPAN",
+        "address": "19, Jalan USJ 10/1D, USj 10 Taipan Business Centre, 47620 Subang Jaya, Selangor",
+        "coordinates": "3.048734313, 101.5842594",
+        "sectors": "Tiada sektor rondaan spesifik."
+      },
+      {
+        "name": "BALAI POLIS KOMUNITI PINGGIRAN USJ",
+        "address": "1, Jalan TP 7/1, Taman Perindustrian UEP, 47620 Subang Jaya, Selangor",
+        "coordinates": "3.04301699, 101.5496786",
+        "sectors": "Tiada sektor rondaan spesifik."
+      }
+    ],
+    "abbreviations": [
+      {
+        "abbr": "IPD",
+        "full": "Ibu Pejabat Polis Daerah"
+      },
+      {
+        "abbr": "KPD",
+        "full": "Ketua Polis Daerah"
+      },
+      {
+        "abbr": "Tim.KPD",
+        "full": "Timbalan Ketua Polis Daerah"
+      },
+      {
+        "abbr": "KBPJKK",
+        "full": "Ketua Bahagian Pencegahan Jenayah Dan Keselamatan Komuniti"
+      },
+      {
+        "abbr": "KUMPV",
+        "full": "Ketua Unit MPV"
+      },
+      {
+        "abbr": "KUURB",
+        "full": "Ketua Unit Rondaan Bermotosikal"
+      },
+      {
+        "abbr": "MPV",
+        "full": "Mobile Patrol Vehicle atau Unit Kereta Peronda"
+      },
+      {
+        "abbr": "URB",
+        "full": "Unit Rondaan Bermotosikal"
+      }
+    ]
+  }
+}
