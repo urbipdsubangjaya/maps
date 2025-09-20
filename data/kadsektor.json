@@ -2,7 +2,7 @@
   "general": {
     "welcome_message": "Assalamualaikum & Salam Sejahtera. Saya **Koperal AiSuJa**, AI Subang Jaya. Saya dicipta khas untuk membantu pegawai-pegawai IPD Subang Jaya dengan maklumat penting. Sila ajukan pertanyaan anda, saya sedia membantu.",
     "developer_contact": "Koperal Subky URB BPJKK",
-    "disclaimer": "Sila ambil perhatian: Semua jawapan dijana berdasarkan data yang telah diprogramkan. Jika maklumat tiada, saya akan maklumkan. Gunakan maklumat ini dengan bertanggungjawab. Rahsiakan rahsia pasukan!"
+    "disclaimer": "Sila ambil perhatian: Semua jawapan dijana berdasarkan data yang telah diprogramkan. Jika maklumat tiada, saya akan maklumkan. Gunakan maklumat ini dengan tanggungjawab."
   },
   "prompt_details": {
     "role": "Sebagai AI Subang Jaya (AiSuJa), anda adalah sistem AI yang direka untuk berinteraksi dalam Bahasa Melayu. Anda mesti sentiasa bersikap sopan, beretika dan tegas dalam setiap jawapan.",
@@ -68,7 +68,12 @@
         "sectors": "Dibahagikan kepada 15 sektor. Setiap balai mempunyai 3 sektor rondaan.",
         "points_of_interest": {
           "panduan_penggunaan": [],
-          "nama_taman_etc": [],
+          "nama_taman_etc": [
+            "Taman Perindustrian UEP Subang Jaya (TPUSJ)",
+            "Taman Perindustrian Subang (TAPS)",
+            "Taman Perindustrian USJ (TPUSJ)",
+            "Taman Perindustrian USJ 1"
+          ],
           "bank": [],
           "kedai_emas": [],
           "stesen_minyak": [],
@@ -87,17 +92,60 @@
         "coordinates": "3.045590152, 101.5889226",
         "sectors": "Sektor 1, 2, dan 3",
         "points_of_interest": {
-          "panduan_penggunaan": [],
-          "nama_taman_etc": [],
-          "bank": [],
-          "kedai_emas": [],
-          "stesen_minyak": [],
-          "rumah_ibadat": [],
-          "sekolah": [],
-          "universiti": [],
-          "kedai_serbaneka": [],
-          "stesen_lrt_etc": [],
-          "tempat_tumpuan": [],
+          "panduan_penggunaan": [
+            "Nombor telefon balai: 03-5636 2222."
+          ],
+          "nama_taman_etc": [
+            "USJ 1",
+            "USJ 2",
+            "USJ 3",
+            "USJ 4",
+            "USJ 5",
+            "USJ 6",
+            "USJ 7",
+            "USJ 8"
+          ],
+          "bank": [
+            "CIMB Bank",
+            "Maybank",
+            "Public Bank",
+            "RHB Bank",
+            "Bank Islam"
+          ],
+          "kedai_emas": [
+            "Kedai Emas Sri Anggun",
+            "Kedai Emas Poh Kong",
+            "Kedai Emas Habib Jewel"
+          ],
+          "stesen_minyak": [
+            "Shell USJ 8",
+            "Petronas USJ 8"
+          ],
+          "rumah_ibadat": [
+            "Masjid Al-Falah USJ 9",
+            "Masjid An-Nur USJ 3"
+          ],
+          "sekolah": [
+            "SK Seafield 3",
+            "SMK USJ 4",
+            "SK Dato' Onn Jaafar"
+          ],
+          "universiti": [
+            "SEGi College Subang Jaya",
+            "Monash University Malaysia"
+          ],
+          "kedai_serbaneka": [
+            "Speedmart 99",
+            "7-Eleven"
+          ],
+          "stesen_lrt_etc": [
+            "LRT USJ 7",
+            "LRT Taipan"
+          ],
+          "tempat_tumpuan": [
+            "Da Men Mall",
+            "Summit USJ"
+          ],
           "lain_lain": []
         }
       },
@@ -108,16 +156,42 @@
         "sectors": "Sektor 4, 5, dan 6",
         "points_of_interest": {
           "panduan_penggunaan": [],
-          "nama_taman_etc": [],
-          "bank": [],
+          "nama_taman_etc": [
+            "SS 12",
+            "SS 13",
+            "SS 14",
+            "SS 15",
+            "SS 16",
+            "SS 17",
+            "SS 18",
+            "SS 19"
+          ],
+          "bank": [
+            "Hong Leong Bank",
+            "Bank Rakyat"
+          ],
           "kedai_emas": [],
-          "stesen_minyak": [],
+          "stesen_minyak": [
+            "Caltex SS17",
+            "Shell SS17"
+          ],
           "rumah_ibadat": [],
-          "sekolah": [],
-          "universiti": [],
+          "sekolah": [
+            "Sekolah Sri Kuala Lumpur",
+            "SK SS17"
+          ],
+          "universiti": [
+            "Taylor's College",
+            "INTI International College"
+          ],
           "kedai_serbaneka": [],
-          "stesen_lrt_etc": [],
-          "tempat_tumpuan": [],
+          "stesen_lrt_etc": [
+            "LRT SS15"
+          ],
+          "tempat_tumpuan": [
+            "Subang Parade",
+            "Empire Shopping Gallery"
+          ],
           "lain_lain": []
         }
       },
@@ -127,17 +201,34 @@
         "coordinates": "2.989854291, 101.6201365",
         "sectors": "Sektor 7, 8, dan 9",
         "points_of_interest": {
-          "panduan_penggunaan": [],
-          "nama_taman_etc": [],
-          "bank": [],
+          "panduan_penggunaan": [
+            "Nombor telefon balai: 03-8060 2222"
+          ],
+          "nama_taman_etc": [
+            "Bandar Bukit Puchong",
+            "Taman Perindustrian Maju Jaya",
+            "Taman Perindustrian Puchong Utama"
+          ],
+          "bank": [
+            "Maybank Bandar Bukit Puchong",
+            "Public Bank Bandar Bukit Puchong"
+          ],
           "kedai_emas": [],
-          "stesen_minyak": [],
+          "stesen_minyak": [
+            "Caltex Bandar Bukit Puchong",
+            "Shell Bandar Bukit Puchong"
+          ],
           "rumah_ibadat": [],
-          "sekolah": [],
+          "sekolah": [
+            "SK Puchong Utama 2",
+            "SMK Puchong Utama 1"
+          ],
           "universiti": [],
           "kedai_serbaneka": [],
           "stesen_lrt_etc": [],
-          "tempat_tumpuan": [],
+          "tempat_tumpuan": [
+            "Tesco Extra Bandar Bukit Puchong"
+          ],
           "lain_lain": []
         }
       },
@@ -148,16 +239,33 @@
         "sectors": "Sektor 10, 11, dan 12",
         "points_of_interest": {
           "panduan_penggunaan": [],
-          "nama_taman_etc": [],
-          "bank": [],
+          "nama_taman_etc": [
+            "PJS 7",
+            "PJS 9",
+            "PJS 11",
+            "Bandar Sunway"
+          ],
+          "bank": [
+            "CIMB Bank Sunway",
+            "Maybank Sunway"
+          ],
           "kedai_emas": [],
           "stesen_minyak": [],
           "rumah_ibadat": [],
           "sekolah": [],
-          "universiti": [],
+          "universiti": [
+            "Sunway University",
+            "Monash University Malaysia",
+            "The One Academy"
+          ],
           "kedai_serbaneka": [],
-          "stesen_lrt_etc": [],
-          "tempat_tumpuan": [],
+          "stesen_lrt_etc": [
+            "BRT Sunway Lagoon"
+          ],
+          "tempat_tumpuan": [
+            "Sunway Pyramid",
+            "Sunway Lagoon"
+          ],
           "lain_lain": []
         }
       },
@@ -168,16 +276,31 @@
         "sectors": "Sektor 13, 14, dan 15",
         "points_of_interest": {
           "panduan_penggunaan": [],
-          "nama_taman_etc": [],
-          "bank": [],
+          "nama_taman_etc": [
+            "Putra Avenue",
+            "Putra Indah",
+            "Putra Bistari"
+          ],
+          "bank": [
+            "Maybank Putra Heights",
+            "Public Bank Putra Heights"
+          ],
           "kedai_emas": [],
           "stesen_minyak": [],
           "rumah_ibadat": [],
-          "sekolah": [],
+          "sekolah": [
+            "SK Putra Heights 2",
+            "SMK USJ 23"
+          ],
           "universiti": [],
           "kedai_serbaneka": [],
-          "stesen_lrt_etc": [],
-          "tempat_tumpuan": [],
+          "stesen_lrt_etc": [
+            "LRT Putra Heights"
+          ],
+          "tempat_tumpuan": [
+            "Giant Hypermarket Putra Heights",
+            "One City"
+          ],
           "lain_lain": []
         }
       },
@@ -187,16 +310,25 @@
         "coordinates": "3.048734313, 101.5842594",
         "sectors": "Tiada sektor rondaan spesifik.",
         "points_of_interest": {
-          "panduan_penggunaan": [],
+          "panduan_penggunaan": [
+            "Nombor telefon balai: 03-5636 2222."
+          ],
           "nama_taman_etc": [],
-          "bank": [],
+          "bank": [
+            "RHB Bank",
+            "CIMB Bank",
+            "Maybank",
+            "Public Bank"
+          ],
           "kedai_emas": [],
           "stesen_minyak": [],
           "rumah_ibadat": [],
           "sekolah": [],
           "universiti": [],
           "kedai_serbaneka": [],
-          "stesen_lrt_etc": [],
+          "stesen_lrt_etc": [
+            "LRT Taipan"
+          ],
           "tempat_tumpuan": [],
           "lain_lain": []
         }
@@ -208,7 +340,9 @@
         "sectors": "Tiada sektor rondaan spesifik.",
         "points_of_interest": {
           "panduan_penggunaan": [],
-          "nama_taman_etc": [],
+          "nama_taman_etc": [
+            "Taman Perindustrian UEP"
+          ],
           "bank": [],
           "kedai_emas": [],
           "stesen_minyak": [],
