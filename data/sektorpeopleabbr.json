@@ -1,0 +1,60 @@
+{
+  "officer_list": [
+    {
+      "rank": "KPD",
+      "name": "ACP Wan Azlan Bin Wan Mamat"
+    },
+    {
+      "rank": "T/KPD",
+      "name": "SUPT Mohd Fairus Bin Jaafar"
+    },
+    {
+      "rank": "KBPJKK",
+      "name": "DSP Tan Seng Guan"
+    },
+    {
+      "rank": "KU MPV",
+      "full_name": "Ketua Unit MPV",
+      "name": "ASP Ahmad Nazaruddin Bin HJ Abdul Rahim"
+    },
+    {
+      "rank": "KU URB",
+      "full_name": "Ketua Unit Rondaan Bermotosikal",
+      "name": "ASP Mohd Yusmen Bin Mohd Yusof"
+    }
+  ],
+  "abbreviations": [
+    {
+      "abbr": "IPD",
+      "full": "Ibu Pejabat Polis Daerah"
+    },
+    {
+      "abbr": "KPD",
+      "full": "Ketua Polis Daerah"
+    },
+    {
+      "abbr": "T/KPD",
+      "full": "Timbalan Ketua Polis Daerah"
+    },
+    {
+      "abbr": "KBPJKK",
+      "full": "Ketua Bahagian Pencegahan Jenayah dan Keselamatan Komuniti"
+    },
+    {
+      "abbr": "KU MPV",
+      "full": "Ketua Unit MPV"
+    },
+    {
+      "abbr": "KU URB",
+      "full": "Ketua Unit Rondaan Bermotosikal"
+    },
+    {
+      "abbr": "MPV",
+      "full": "Mobile Patrol Vehicle"
+    },
+    {
+      "abbr": "URB",
+      "full": "Unit Rondaan Bermotosikal"
+    }
+  ]
+}
