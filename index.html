@@ -7,165 +7,165 @@
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
 <style>
 /* * PENERANGAN:
- * Menggunakan CSS Variables untuk pengurusan tema mod cerah dan gelap yang lebih bersih.
- * Ini mengelakkan penggunaan !important dan memudahkan penyelenggaraan.
- */
+ * Menggunakan CSS Variables untuk pengurusan tema mod cerah dan gelap yang lebih bersih.
+ * Ini mengelakkan penggunaan !important dan memudahkan penyelenggaraan.
+ */
 :root {
-    /* Variables untuk Mod Cerah */
-    --bg-color: white;
-    --text-color: black;
-    --header-text-color: dodgerblue;
-    --border-color: rgba(0, 0, 0, 0.3);
-    --input-bg: rgba(0, 0, 0, 0.05);
-    --placeholder-color: #666666;
-    --chat-bubble-user-bg: #DCF8C6;
-    --chat-bubble-gemini-bg: #E5E5EA;
-    --admin-text-color: grey;
-    --admin-issue-bg: #333;
-    --admin-issue-text: white;
-    --admin-contact-color: dodgerblue;
+    /* Variables untuk Mod Cerah */
+    --bg-color: white;
+    --text-color: black;
+    --header-text-color: dodgerblue;
+    --border-color: rgba(0, 0, 0, 0.3);
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --placeholder-color: #666666;
+    --chat-bubble-user-bg: #DCF8C6;
+    --chat-bubble-gemini-bg: #E5E5EA;
+    --admin-text-color: grey;
+    --admin-issue-bg: #333;
+    --admin-issue-text: white;
+    --admin-contact-color: dodgerblue;
 }
 
 /* Variables untuk Mod Gelap */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;
-        --text-color: white;
-        --header-text-color: yellow;
-        --border-color: rgba(255, 255, 255, 0.3);
-        --input-bg: rgba(255, 255, 255, 0.1);
-        --placeholder-color: #aaaaaa;
-        --chat-bubble-user-bg: #056641;
-        --chat-bubble-gemini-bg: #36454F;
-        --admin-text-color: #ccc;
-        --admin-issue-bg: white;
-        --admin-issue-text: black;
-        --admin-contact-color: #00ffff;
-    }
+    :root {
+        --bg-color: #121212;
+        --text-color: white;
+        --header-text-color: yellow;
+        --border-color: rgba(255, 255, 255, 0.3);
+        --input-bg: rgba(255, 255, 255, 0.1);
+        --placeholder-color: #aaaaaa;
+        --chat-bubble-user-bg: #056641;
+        --chat-bubble-gemini-bg: #36454F;
+        --admin-text-color: #ccc;
+        --admin-issue-bg: white;
+        --admin-issue-text: black;
+        --admin-contact-color: #00ffff;
+    }
 }
 
 /* Global Reset */
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Reem Kufi', sans-serif;
-    overflow-x: hidden;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    font-family: 'Reem Kufi', sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Animasi teks */
 .aligned-text {
-    display: inline-block;
-    animation: smoothEnter 0.8s ease-out forwards;
-    opacity: 0;
-    padding: 0;
-    color: var(--header-text-color);
-    transform: translateX(30px);
+    display: inline-block;
+    animation: smoothEnter 0.8s ease-out forwards;
+    opacity: 0;
+    padding: 0;
+    color: var(--header-text-color);
+    transform: translateX(30px);
 }
 
 /* Table styling */
 table {
-    border-collapse: collapse;
-    width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 td:first-child {
-    white-space: nowrap;
-    vertical-align: top;
-    padding-right: 10px;
-    transition: color 0.5s ease-in-out;
+    white-space: nowrap;
+    vertical-align: top;
+    padding-right: 10px;
+    transition: color 0.5s ease-in-out;
 }
 td:nth-child(2) {
-    vertical-align: top;
-    padding-right: 5px;
-    color: var(--text-color);
-    transition: color 0.5s ease-in-out;
+    vertical-align: top;
+    padding-right: 5px;
+    color: var(--text-color);
+    transition: color 0.5s ease-in-out;
 }
 td:first-child b { color: var(--text-color); transition: color 0.5s ease-in-out; }
 .nolink { text-decoration: none; color: inherit; }
 
 /* Button styling */
 .button {
-    width: 45%;
-    text-align: center;
-    padding: 12px;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
-    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
-    background-color: rgba(255, 255, 255, 0.15);
-    background-repeat: repeat;
-    background-size: 30px 30px;
-    background-attachment: fixed;
-    background-blend-mode: overlay;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    font-family: inherit;
-    font-size: 14px;
+    width: 45%;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
 }
 .button.glow-on-hover:before {
-    content: ''; position: absolute; top:-2px; left:-2px;
-    width: calc(100% + 4px); height: calc(100% + 4px);
-    background-size: 400%; z-index:-1; filter: blur(5px); opacity:0;
-    transition: opacity 0.3s ease-in-out; border-radius:10px;
+    content: ''; position: absolute; top:-2px; left:-2px;
+    width: calc(100% + 4px); height: calc(100% + 4px);
+    background-size: 400%; z-index:-1; filter: blur(5px); opacity:0;
+    transition: opacity 0.3s ease-in-out; border-radius:10px;
 }
 .button.glow-on-hover:hover:before { opacity:1; }
 .glow-lawat:before {
-    background: linear-gradient(45deg, #ff0000,#ff4d4d,#ffffff,#ffa6a6,#ff0000,#00ffff,#ff0000);
-    animation: glowing-move 20s linear infinite;
+    background: linear-gradient(45deg, #ff0000,#ff4d4d,#ffffff,#ffa6a6,#ff0000,#00ffff,#ff0000);
+    animation: glowing-move 20s linear infinite;
 }
 .glow-lapor:before {
-    background: linear-gradient(45deg, #2323ff,#00ffff,#0000ff,#ffffff,#0000ff,#00ffff,#2323ff);
-    animation: glowing-move 20s linear infinite;
+    background: linear-gradient(45deg, #2323ff,#00ffff,#0000ff,#ffffff,#0000ff,#00ffff,#2323ff);
+    animation: glowing-move 20s linear infinite;
 }
 @keyframes glowing-move {
-    0% { background-position:0 0; }
-    50% { background-position:400% 0; }
-    100% { background-position:0 0; }
+    0% { background-position:0 0; }
+    50% { background-position:400% 0; }
+    100% { background-position:0 0; }
 }
 
 /* Frosted card */
 .frosted-card-effect {
-    display:block; width:100%; box-sizing:border-box; padding:6px;
-    border-radius:10px;
-    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
-    background-color: rgba(255, 255, 255, 0.15);
-    background-repeat: repeat;
-    background-size:30px 30px; background-attachment: fixed; background-blend-mode: overlay;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    box-shadow:0 4px 14px rgba(0,0,0,0.4); border:1px solid;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    display:block; width:100%; box-sizing:border-box; padding:6px;
+    border-radius:10px;
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size:30px 30px; background-attachment: fixed; background-blend-mode: overlay;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    box-shadow:0 4px 14px rgba(0,0,0,0.4); border:1px solid;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 .admin-issue-text.frosted-card-effect {
-    background-color: var(--admin-issue-bg);
-    color: var(--admin-issue-text);
-    border-color: var(--text-color);
+    background-color: var(--admin-issue-bg);
+    color: var(--admin-issue-text);
+    border-color: var(--text-color);
 }
 
 /* Admin text blocks */
 .admin-text { 
-    position: relative; margin-top:20px; font-style:italic; font-size:10px; text-align:center; 
-    color: var(--admin-text-color);
-    transition: color 0.5s ease-in-out;
+    position: relative; margin-top:20px; font-style:italic; font-size:10px; text-align:center; 
+    color: var(--admin-text-color);
+    transition: color 0.5s ease-in-out;
 }
 .admin-issue-text { margin-bottom:-1px; border-bottom-left-radius:0; border-bottom-right-radius:0; }
 .admin-contact-link {
-    text-decoration:none; font-weight:bold; display:flex; align-items:center; justify-content:center;
-    width:100%; box-sizing:border-box; padding:6px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,0.4);
-    border:1px solid var(--text-color);
-    background-color:transparent; margin-top:0;
-    border-top-left-radius:0; border-top-right-radius:0;
-    transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out;
-    color: var(--admin-contact-color);
+    text-decoration:none; font-weight:bold; display:flex; align-items:center; justify-content:center;
+    width:100%; box-sizing:border-box; padding:6px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    border:1px solid var(--text-color);
+    background-color:transparent; margin-top:0;
+    border-top-left-radius:0; border-top-right-radius:0;
+    transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    color: var(--admin-contact-color);
 }
 .admin-contact-link .icon { margin-right:3px; font-size:12px; }
 
@@ -182,213 +182,213 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
 
 /* Gaya butang Hantar */
 #send-btn {
-    background-color: transparent;
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
-    border-radius: 20px;
-    padding: 8px 15px;
-    margin-left: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    width: 90px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width: 90px;
 }
 #send-btn:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
 }
 @media (prefers-color-scheme: dark) {
-    #send-btn:hover {
-        background-color: rgba(255,255,255,0.2);
-    }
+    #send-btn:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
 }
 #send-btn:active, #send-btn.active {
-    background-color: #0000ff;
-    color: #f0ff00;
-    border-color: #f0ff00;
-    transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background-color: #0000ff;
+    color: #f0ff00;
+    border-color: #f0ff00;
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* Tambahan class untuk mesej chat */
 .chat-message {
-    font-family: inherit;
-    margin: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: var(--text-color);
+    font-family: inherit;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-color);
 }
 .chat-container-with-bg {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 350px;
-    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
-    background-color: rgba(255, 255, 255, 0.15);
-    background-repeat: repeat;
-    background-size: 30px 30px;
-    background-attachment: fixed;
-    background-blend-mode: overlay;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4); 
-    padding: 6px;
-    transition: border-color 0.5s ease-in-out;
-    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4); 
+    padding: 6px;
+    transition: border-color 0.5s ease-in-out;
+    border: 1px solid var(--border-color);
 }
 #chatbox {
-    flex-grow: 1;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .message-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    max-width: 85%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 85%;
 }
 .message-container.user {
-    align-self: flex-end;
-    flex-direction: row-reverse;
+    align-self: flex-end;
+    flex-direction: row-reverse;
 }
 .profile-pic {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border: none;
-    overflow: hidden;
-    transition: border-color 0.5s ease-in-out;
+    width: 35px; /* SIZED SUDAH BETUL */
+    height: 35px; /* SIZED SUDAH BETUL */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: none;
+    overflow: hidden;
+    transition: border-color 0.5s ease-in-out;
 }
 .profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .message-bubble {
-    padding: 8px 12px;
-    word-wrap: break-word;
-    font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    position: relative;
+    padding: 8px 12px;
+    word-wrap: break-word;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    position: relative;
 }
 .message-bubble.user { background-color: var(--chat-bubble-user-bg); }
 .message-bubble.gemini { border-radius: 5px 15px 15px 15px; background-color: var(--chat-bubble-gemini-bg); }
 .message-container.user .message-bubble { border-radius: 15px 15px 5px 15px; }
 #input-area {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    padding: 10px;
-    border-top: 1px solid var(--border-color);
-    box-sizing: border-box;
-    transition: border-color 0.5s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.5s ease-in-out;
 }
 /* CSS untuk textarea yang baru */
 #userInput {
-    border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 14px;
-    outline: none;
-    background-color: var(--input-bg);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease, background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    resize: none; /* Penting: Untuk mengelakkan pengguna mengubah saiz kotak secara manual */
-    overflow-y: hidden; /* Sembunyikan scrollbar */
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--input-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    resize: none; /* Penting: Untuk mengelakkan pengguna mengubah saiz kotak secara manual */
+    overflow-y: hidden; /* Sembunyikan scrollbar */
 }
 #userInput::placeholder { color: var(--placeholder-color); }
 #userInput:focus { box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 123, 255, 0.5); }
 .dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #666;
-    border-radius: 50%;
-    margin-right: 2px;
-    animation: bounce 1.4s infinite ease-in-out both;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #666;
+    border-radius: 50%;
+    margin-right: 2px;
+    animation: bounce 1.4s infinite ease-in-out both;
 }
 .dot:nth-child(1) { animation-delay: -0.32s; }
 .dot:nth-child(2) { animation-delay: -0.16s; }
 .dot:nth-child(3) { animation-delay: 0s; }
 @keyframes bounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
 }
 #toast-container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 .toast {
-    background-color: rgba(51, 51, 51, 0.85);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInOut 4s forwards;
-    transition: opacity 0.5s, transform 0.5s;
-    font-size: 14px;
+    background-color: rgba(51, 51, 51, 0.85);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInOut 4s forwards;
+    transition: opacity 0.5s, transform 0.5s;
+    font-size: 14px;
 }
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(20px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(20px); }
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
 }
 /* Gaya untuk butang salin */
 .copy-btn {
-    position: absolute;
-    top: 5px; /* Sesuaikan kedudukan menegak */
-    right: 5px; /* Sesuaikan kedudukan mendatar */
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 8px;
-    font-size: 14px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    color: var(--text-color);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    position: absolute;
+    top: 5px; /* Sesuaikan kedudukan menegak */
+    right: 5px; /* Sesuaikan kedudukan mendatar */
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--text-color);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 .copy-btn:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .message-bubble.gemini:hover .copy-btn {
-    opacity: 1; /* Tunjukkan butang apabila hover */
+    opacity: 1; /* Tunjukkan butang apabila hover */
 }
 @media (max-width: 768px) {
-    #input-area { padding: 8px; }
-    #userInput, #send-btn { font-size: 13px; padding: 8px 12px; }
-    .message-bubble { font-size: 13px; padding: 8px 12px; }
+    #input-area { padding: 8px; }
+    #userInput, #send-btn { font-size: 13px; padding: 8px 12px; }
+    .message-bubble { font-size: 13px; padding: 8px 12px; }
 }
 </style>
 </head>
@@ -397,25 +397,25 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
 <div style="font-size:14px; padding:10px; border-radius:10px; position:relative; min-height:500px; overflow-y:auto;">
 
 <div class="chat-container-with-bg">
-    <div id="chatbox"></div>
-    <div id="typingIndicator" class="message-container gemini" style="display:none; align-self: flex-start; max-width: none;">
-        <div class="profile-pic gemini">
-            <img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI sedang menaip">
-        </div>
-        <div class="message-bubble gemini">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-    <div id="input-area">
-        <textarea id="userInput" placeholder="Tanya soalan..." rows="1"></textarea>
-        <button id="send-btn">Hantar</button>
-    </div>
+    <div id="chatbox"></div>
+    <div id="typingIndicator" class="message-container gemini" style="display:none; align-self: flex-start; max-width: none;">
+        <div class="profile-pic gemini">
+            <img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI sedang menaip">
+        </div>
+        <div class="message-bubble gemini">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <div id="input-area">
+        <textarea id="userInput" placeholder="Tanya soalan..." rows="1"></textarea>
+        <button id="send-btn">Hantar</button>
+    </div>
 </div>
 <div style="display:flex; justify-content:space-between; width:100%; padding:15px 0; gap:10px;">
-    <button id="newChatBtn" class="button lawat glow-on-hover glow-lawat">💬 CHAT BARU</button>
-    <a href="https://linktr.ee/BPJKK" class="button lapor glow-on-hover glow-lapor" target="_blank" rel="noopener noreferrer">🚨 BPJKK</a>
+    <button id="newChatBtn" class="button lawat glow-on-hover glow-lawat">💬 CHAT BARU</button>
+    <a href="https://linktr.ee/BPJKK" class="button lapor glow-on-hover glow-lapor" target="_blank" rel="noopener noreferrer">🚨 BPJKK</a>
 </div>
 
 <img src='https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/maincover.webp' width='100%' style='border-radius:10px; display:block; margin:0 auto; box-shadow:0px 4px 15px rgba(0,0,0,0.5);' loading="lazy" alt="Imej latar belakang dengan logo">
@@ -443,16 +443,15 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
     };
 
     const CONFIG = {
-        // 🚨 GANTI URL INI: Guna URL Apps Script BARU (JSONP doGet)
-        API_URL: "https://script.google.com/macros/s/AKfycbzJhpoM5Iqr0OiVPPBH8NLuLkrvSP-beXzCCmMkq1kLszRUh902VbkoMAW9BYcLPaYvFg/exec", // <-- INI CONTOH URL LAMA, WAJIB GANTI
-        
         // KEKALKAN: Kita tak guna API_KEY ni secara langsung lagi, ia ada dalam Apps Script (Code.gs)
         API_KEY: "AIzaSyAykb_VwXjS6ohN1XqQdjKJy-rlkUxjk2c", 
         
+        // 🚨 WAJIB GANTI URL INI: Guna URL Apps Script BARU hang!
+        // Contoh URL yang *dummy* (sila tukar):
+        API_URL: "https://script.google.com/macros/s/AKfycbzJhpoM5Iqr0OiVPPBH8NLuLkrvSP-beXzCCmMkq1kLszRUh902VbkoMAW9BYcLPaYvFg/exec", 
+        
         urls: [
-            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorsettings.json',
-            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorpeopleabbr.json',
-            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorlocations.json'
+            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/aisuja.json',
         ]
     };
 
@@ -495,7 +494,8 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         } catch (error) {
             console.error("❌ Ralat semasa memuat data:", error);
             showToast("⚠️ Ralat! Ada masalah memuat maklumat. Sila cuba lagi nanti.");
-            DOM.chatbox.innerHTML = `<div class="message-container gemini"><div class="profile-pic gemini"><img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI"></div><div class="message-bubble gemini">Maaf, ada masalah teknikal. Sila cuba muat semula laman.</div></div>`;
+            // Paparkan mesej ralat dalam chatbox jika data gagal dimuat
+            DOM.chatbox.innerHTML = `<div class="message-container gemini"><div class="profile-pic gemini"><img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI"></div><div class="message-bubble gemini">Maaf, ada masalah teknikal semasa memuat data rujukan. Sila cuba muat semula laman.</div></div>`;
         }
     }
 
@@ -520,7 +520,8 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
     function scrollToBottom(element) {
         element.scrollTop = element.scrollHeight;
     }
-
+    
+    // FUNGSI INI DIJAMIN MENGGUNAKAN STRUKTUR CSS ASAL HANG
     function appendMessage(role, text) {
         const messageContainer = document.createElement('div');
         messageContainer.className = `message-container ${role}`;
@@ -534,7 +535,7 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         if (role === 'gemini') {
             messageBubbleContent += `<button class="copy-btn" onclick="copyToClipboard(this.parentElement)">Salin</button>`;
         }
-
+        
         messageContainer.innerHTML = `
             <div class="profile-pic ${role}">
                 <img src="${profilePicSrc}" alt="${profilePicAlt}">
@@ -546,7 +547,6 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         scrollToBottom(DOM.chatbox);
     }
 
-    // Fungsi ini kekal sama
     function displayChatHistory() {
         DOM.chatbox.innerHTML = '';
         appState.history.forEach(message => {
@@ -554,15 +554,28 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         });
     }
 
-    // Fungsi untuk salin teks ke clipboard - KEKAL SAMA
+    // Fungsi untuk salin teks ke clipboard
     async function copyToClipboard(element) {
         const textToCopy = element.querySelector('.chat-message').innerText;
         try {
-            await navigator.clipboard.writeText(textToCopy);
+            // Penggunaan `navigator.clipboard.writeText` memerlukan HTTPS
+            await navigator.clipboard.writeText(textToCopy); 
             showToast("Teks berjaya disalin!");
         } catch (err) {
             console.error('Gagal salin teks: ', err);
-            showToast("Gagal menyalin teks.");
+            // Fallback untuk persekitaran yang tidak menyokong navigator.clipboard
+            try {
+                const textArea = document.createElement("textarea");
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast("Teks berjaya disalin! (Fallback)");
+            } catch (errFallback) {
+                showToast("Gagal menyalin teks. (Mungkin isu browser)");
+            }
         }
     }
 
@@ -605,14 +618,14 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         return promptLines.join('\n');
     }
     
-    // FUNGSI CALLBACK GLOBAL JSONP
+    // FUNGSI CALLBACK GLOBAL JSONP (Akan dipanggil oleh Apps Script)
     window.handleGeminiResponse = function(apiData) {
-        // Pastikan skrip tag yang kita cipta dibuang
+        // Buang script tag yang kita cipta selepas data diterima
         const script = document.getElementById('geminiScript');
         if (script) script.remove();
         
         try {
-            // 🚨 Check Ralat dari Apps Script
+            // Check Ralat dari Apps Script
             if (apiData.error) {
                 throw new Error(`Ralat Server Proxy/API: ${apiData.error.message}`);
             }
@@ -620,10 +633,13 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
             const geminiText = apiData?.candidates?.[0]?.content?.parts?.[0]?.text;
             
             if (!geminiText) {
-                throw new Error("Format respons API tidak sah atau tiada teks ditemui.");
+                 if (apiData.candidates && apiData.candidates[0].finishReason === 'SAFETY') {
+                    throw new Error("Jawapan disekat oleh Safety Settings (Isi kandungan tidak sesuai).");
+                 }
+                throw new Error("Jawapan AI kosong atau tidak lengkap.");
             }
 
-            // 3. Proses Jawapan
+            // Proses Jawapan
             processGeminiResponse(geminiText);
         } catch (error) {
             handleApiError(error);
@@ -634,7 +650,7 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
     }
 
 
-    async function sendMessage() {
+    function sendMessage() {
         const userInputVal = DOM.userInput.value.trim();
         if (!userInputVal || appState.isTyping) {
             return;
@@ -658,15 +674,21 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
                 chatHistoryToSend = appState.history.slice(-6); // Hadkan sejarah yang dihantar
             }
             
-            // Bina Request Body untuk Apps Script
-            const requestBody = {
-                contents: chatHistoryToSend
-            };
-
+            // Format history untuk Apps Script/Gemini
+            const contentsForApi = chatHistoryToSend.map(msg => {
+                // Apps Script EXPECTS 'user'/'model', bukan 'gemini'
+                const roleName = (msg.role === 'gemini' ? 'model' : msg.role);
+                return {
+                    role: roleName, 
+                    parts: msg.parts
+                };
+            });
+            
             // 🚨 JSONP HACK: Hantar payload sebagai parameter URL GET
+            const requestBody = { contents: contentsForApi };
             const payloadUrl = encodeURIComponent(JSON.stringify(requestBody));
             
-            // Tambah parameter callback yang akan memanggil window.handleGeminiResponse
+            // Tambah parameter callback
             const fullUrl = `${CONFIG.API_URL}?json=${payloadUrl}&callback=handleGeminiResponse`;
 
             // Dynamic Script Injection (menggantikan fetch untuk elak CORS)
@@ -675,7 +697,7 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
             script.id = 'geminiScript';
             document.head.appendChild(script);
             
-            // KITA TAK PERLU TUNGGU FETCH, SEBAB JAWAPAN DATANG MELALUI SCRIPT INJECTION (handleGeminiResponse)
+            // Jawapan akan diproses dalam window.handleGeminiResponse
 
         } catch (error) {
             handleApiError(error);
@@ -693,8 +715,9 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
 
     function addMessageAndHistory(role, text) {
         appendMessage(role, text);
+        // Simpan dalam history (guna 'user' atau 'gemini' untuk local storage, tapi 'model' untuk hantar ke API)
         appState.history.push({
-            "role": role,
+            "role": (role === 'gemini' ? 'model' : role), // Simpan model untuk API, guna gemini untuk local display
             "parts": [{ "text": text }]
         });
         saveChatHistory();
@@ -714,6 +737,7 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
     function handleApiError(error) {
         console.error("Ralat:", error);
         DOM.typingIndicator.style.display = 'none';
+        // Paparkan ralat penuh supaya Matkie tahu apa masalahnya
         appendMessage('gemini', `❌ Maaf, ada masalah teknikal: ${error.message}. Sila cuba Chat Baru.`);
         showToast("⚠️ Ralat! Ada masalah teknikal.");
     }
@@ -735,7 +759,7 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         
         appendMessage('gemini', appState.jsonData.general.welcome_message);
         appState.history.push({
-            "role": "model",
+            "role": "model", // Simpan sebagai 'model' di history utk hantar ke API
             "parts": [{"text": appState.jsonData.general.welcome_message}]
         });
         saveChatHistory();
@@ -745,17 +769,23 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
     // == PENYIMPANAN TEMPATAN & PENDENGAR ACARA ==
     function saveChatHistory() {
         try {
-            localStorage.setItem('chatHistory', JSON.stringify(appState.history));
+            const historyToSave = appState.history.map(msg => ({
+                ...msg,
+                role: msg.role === 'gemini' ? 'model' : msg.role // Tukar 'gemini' balik ke 'model' untuk penyimpanan
+            }));
+            localStorage.setItem('chatHistory', JSON.stringify(historyToSave.slice(-50)));
             console.log("Sejarah sembang berjaya disimpan.");
         } catch (e) {
             if (e.name === 'QuotaExceededError') {
                 console.warn("Local Storage penuh. Cuba padankan mesej lama.");
-                appState.history.splice(0, 10);
-                
+                // Try again after deleting oldest messages
                 try {
-                    localStorage.setItem('chatHistory', JSON.stringify(appState.history));
+                    const reducedHistory = appState.history.slice(10).map(msg => ({
+                        ...msg,
+                        role: msg.role === 'gemini' ? 'model' : msg.role
+                    }));
+                    localStorage.setItem('chatHistory', JSON.stringify(reducedHistory.slice(-50)));
                     showToast("🗑 Ruang storan penuh, sejarah lama dipadamkan untuk memberi ruang.");
-                    console.log("Sejarah sembang telah dikemas kini selepas pemadaman.");
                 } catch (e2) {
                     showToast("❌ Storan penuh. Sejarah tidak dapat disimpan.");
                     console.error("Gagal simpan walaupun selepas memadam mesej:", e2);
@@ -770,7 +800,12 @@ top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
         const savedHistory = localStorage.getItem('chatHistory');
         if (savedHistory) {
             try {
-                appState.history = JSON.parse(savedHistory);
+                // Bila load, kita simpan role 'model' sebagai 'gemini' untuk paparan (appendMessage)
+                const loadedHistory = JSON.parse(savedHistory).map(msg => ({
+                    ...msg,
+                    role: msg.role === 'model' ? 'gemini' : msg.role
+                }));
+                appState.history = loadedHistory;
                 displayChatHistory();
             } catch (e) {
                 console.error("Ralat semasa menghuraikan sejarah:", e);
