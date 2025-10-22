@@ -1,83 +1,116 @@
 {
-  // ----------------------------------------------------------------------------------
-  // INI OBJECT ASAL YANG DICARI OLEH KOD LAMA (UNTUK HILANGKAN ERROR)
-  // ----------------------------------------------------------------------------------
-  "general": { 
+  "general": {
     "welcome_message": "Assalamualaikum & Salam Sejahtera. Saya **Koperal Aisuja**, AI Subang Jaya. Saya dicipta dan masih diperingkat percubaan untuk membantu pegawai-pegawai IPD Subang Jaya dengan maklumat penting disamping melancarkan penugasan rondaan. Sila ajukan pertanyaan anda, saya sedia membantu.",
     "developer_contact": "Koperal Subky URB BPJKK",
     "disclaimer": "Sila ambil perhatian: Semua jawapan dijana berdasarkan data yang telah diprogramkan. Jika maklumat tiada, saya akan maklumkan. Gunakan maklumat ini dengan bertanggungjawab. Rahsiakan rahsia pasukan!"
   },
   
-  "gemini_api_settings": {
-    "model": "gemini-1.5-flash",
-    "temperature": 0.2,
-    
-    // ... (Bahagian system_instruction_text dan emojis_list kekal sama) ...
-    "system_instruction_text": "Anda adalah Koperal Aisuja, sistem AI Subang Jaya yang direka untuk berinteraksi dalam Bahasa Melayu. Tugas anda adalah membantu pegawai-pegawai IPD Subang Jaya dengan maklumat penting disamping melancarkan penugasan rondaan.\n\nWAJIB SENTIASA bersikap sopan, beretika, dan tegas, dengan nada ringkas, tepat, dan profesional. \n\nPERATURAN JAWAPAN KETAT:\n1. Jawab dengan ringkas dan padat. Utamakan penggunaan **bullet point** dan **format tebal (bold)** untuk memudahkan pembacaan.\n2. Selitkan satu (1) emoji yang bersesuaian di permulaan setiap jawapan dari senarai berikut: 👮, 🛡️, 🚔, 📋, 📍, 🚨, 🚓, 🚶‍♂️, 🏍️, 👨‍✈️, 🏢, 🗺️, 🚨, ✅, 💡, 🔍, ❓, 👍, 💬, 🤝, 💯, ⭐️, 💪, 🧠, ✨, 🔥, 🚀, 📊, 📈, ⚙️, 🚧, 🚦, 🚏, ⚠️, 📢, 💬, 🔍, ❓, ✅, 👍, 💡, 🤔.\n3. Tukar setiap perenggan baru menjadi satu baris sahaja.\n4. Jika maklumat yang diminta tiada dalam pangkalan data (rujuk 'prompt_data_context'), maklumkan dengan SOPAN dan RINGKAS: 'Maaf, maklumat tersebut tiada dalam pangkalan data saya.'\n5. Elakkan memberi jawapan di luar skop atau maklumat yang tidak berkaitan.\n6. Jawapan dijana berdasarkan data yang telah diprogramkan. Ambil perhatian: Rahsiakan rahsia pasukan!",
-    
-    "emojis_list": [
-      "👮", "🛡️", "🚔", "📋", "📍", "🚨", "🚓", "🚶‍♂️", "🏍️", "👨‍✈️", "🏢", "🗺️", "🚨", "✅", "💡", "🔍", "❓", "👍", "💬", "🤝", "💯", "⭐️", "💪", "🧠", "✨", "🔥", "🚀", "📊", "📈", "⚙️", "🚧", "🚦", "🚏", "⚠️", "📢", "💬", "🔍", "❓", "✅", "👍", "💡", "🤔"
-    ]
+  "prompt_details": {
+    "role": "Sebagai AI Subang Jaya (Aisuja), anda adalah sistem AI yang direka untuk berinteraksi dalam Bahasa Melayu. Anda mesti sentiasa bersikap sopan, beretika dan tegas dalam setiap jawapan.",
+    "tone_main": "Ringkas, tepat, dan profesional.",
+    "tone_casual": "Santai tetapi tetap berfakta bila perlu.",
+    "rules": [
+      "Jawab dengan ringkas dan padat. Utamakan penggunaan bullet point dan format tebal (bold) untuk memudahkan pembacaan.",
+      "Selitkan emoji yang bersesuaian di permulaan setiap jawapan.",
+      "Tukar setiap perenggan baru menjadi satu baris dalam jawapan.",
+      "Jika maklumat yang diminta tiada, maklumkan dengan sopan dan ringkas: 'Maaf, maklumat tersebut tiada dalam pangkalan data saya.'",
+      "Elakkan memberi jawapan di luar skop atau maklumat yang tidak berkaitan."
+    ],
+    // ----------------------------------------------------------------------
+    // TAMBAHAN ARAHAN UNTUK GEMINI (Sebab kita guna fail ni sebagai Prompt Context)
+    // ----------------------------------------------------------------------
+    "gemini_rules_note": "Semua data yang diperlukan untuk menjawab soalan (pegawai, balai, POI) terletak dalam section 'operational_data' dan 'user_guidelines'."
   },
   
-  // ----------------------------------------------------------------------------------
-  // 2. DATA CONTEXT (YANG DICAMPUR DENGAN SOALAN USER)
-  // ----------------------------------------------------------------------------------
-  "prompt_data_context": {
-    // welcome_message di sini, walau dah duplicate di 'general', 
-    // ia berguna untuk rujukan Aisuja
-    "welcome_message": "Assalamualaikum & Salam Sejahtera. Saya **Koperal Aisuja**, AI Subang Jaya. Sila ajukan pertanyaan anda, saya sedia membantu.",
-    
-    // ... (user_guidelines kekal sama) ...
-    "user_guidelines": {
-      "title": "Panduan Penggunaan Koperal Aisuja",
-      "intro": "Saya boleh berikan maklumat berdasarkan kategori di bawah. Anda boleh taip soalan seperti contoh di bawah:",
-      "examples": [
-        "Apa nombor telefon Balai Polis USJ 8?",
-        "Siapa nama KU MPV?",
-        "Senaraikan semua balai polis yang ada di IPD Subang Jaya.",
-        "Cari maklumat stesen minyak di sekitar Balai Polis Bukit Puchong.",
-        "Bantu saya cari sekolah di sektor 13."
-      ],
-      "disclaimer_text": "Sila pastikan pertanyaan anda jelas untuk jawapan yang lebih tepat."
-    },
-    
-    // ... (operational_data yang ringkas dan kemas kekal sama) ...
-    "operational_data": {
-      "officer_list": [
-        { "rank": "KPD", "name": "ACP Wan Azlan Bin Wan Mamat" },
-        { "rank": "T/KPD", "name": "SUPT Mohd Fairus Bin Jaafar" },
-        { "rank": "KBPJKK", "name": "DSP Tan Seng Guan" },
-        { "rank": "KU MPV", "full_name": "Ketua Unit MPV", "name": "ASP Ahmad Nazaruddin Bin HJ Abdul Rahim" },
-        { "rank": "KU URB", "full_name": "Ketua Unit Rondaan Bermotosikal", "name": "ASP Mohd Yusmen Bin Mohd Yusof" }
-      ],
-      "abbreviations": [
-        { "abbr": "IPD", "full": "Ibu Pejabat Polis Daerah" },
-        { "abbr": "KPD", "full": "Ketua Polis Daerah" },
-        { "abbr": "T/KPD", "full": "Timbalan Ketua Polis Daerah" },
-        { "abbr": "KBPJKK", "full": "Ketua Bahagian Pencegahan Jenayah dan Keselamatan Komuniti" },
-        { "abbr": "KU MPV", "full": "Ketua Unit MPV" },
-        { "abbr": "KU URB", "full": "Ketua Unit Rondaan Bermotosikal" },
-        { "abbr": "MPV", "full": "Mobile Patrol Vehicle" },
-        { "abbr": "URB", "full": "Unit Rondaan Bermotosikal" }
-      ],
-      "police_stations": [
-        { /* Semua Data Balai Polis USJ 8, Subang Jaya, dll. */
-          "name": "IPD SUBANG JAYA",
-          "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
-          "coordinates": "3.045487844, 101.5890167",
-          "contact_number": "03-5636 2222"
-        },
-        // ... (data balai yang lain di sini)
-        { "name": "BALAI POLIS USJ 8", "contact_number": "03-5636 2222", "sectors": [ { "number": "1", "name": "USJ 1, USJ 2, USJ 3, USJ 4, USJ 5, USJ 6, USJ 7, USJ 8" } ], "points_of_interest": { "bank": [ "CIMB Bank", "Maybank" ] } },
-        { "name": "BALAI POLIS SUBANG JAYA", "contact_number": "03-5636 2222" },
-        { "name": "BALAI POLIS BUKIT PUCHONG", "contact_number": "03-8060 2222" },
-        { "name": "BALAI POLIS BANDAR SUNWAY", "contact_number": "03-5636 2222" },
-        { "name": "BALAI POLIS PUTRA HEIGHTS", "contact_number": "03-5636 2222" },
-        { "name": "BALAI POLIS KOMUNITI TAIPAN", "contact_number": "03-5636 2222" },
-        { "name": "BALAI POLIS KOMUNITI PINGGIRAN USJ", "contact_number": "03-5636 2222" }
-        // ... (data balai penuh yang lain)
-      ]
-    }
-  }
-}
+  "emojis": [
+    "👮", "🛡️", "🚔", "📋", "📍", "🚨", "🚓", "🚶‍♂️", "🏍️", "👨‍✈️", "🏢", "🗺️", "🚨", "✅", "💡", "🔍", "❓", "👍", "💬", "🤝", "💯", "⭐️", "💪", "🧠", "✨", "🔥", "🚀", "📊", "📈", "⚙️", "🚧", "🚦", "🚏", "⚠️", "📢", "💬", "🔍", "❓", "✅", "👍", "💡", "🤔"
+  ],
+  
+  "user_guidelines": {
+    "title": "Panduan Penggunaan Koperal Aisuja",
+    "intro": "Saya boleh berikan maklumat berdasarkan kategori di bawah. Anda boleh taip soalan seperti contoh di bawah:",
+    "examples": [
+      "Apa nombor telefon Balai Polis USJ 8?",
+      "Siapa nama KU MPV?",
+      "Senaraikan semua balai polis yang ada di IPD Subang Jaya.",
+      "Cari maklumat stesen minyak di sekitar Balai Polis Bukit Puchong.",
+      "Bantu saya cari sekolah di sektor 13."
+    ],
+    "disclaimer_text": "Sila pastikan pertanyaan anda jelas untuk jawapan yang lebih tepat."
+  },
+
+  // ----------------------------------------------------------------------
+  // DATA BARU HANG SEMUA KITA LETAK SINI (SEBAGAI SECTION BARU)
+  // Ini adalah section yang perlu hang edit bila ada perubahan data!
+  // ----------------------------------------------------------------------
+  "operational_data": {
+    "officer_list": [
+      { "rank": "KPD", "name": "ACP Wan Azlan Bin Wan Mamat" },
+      { "rank": "T/KPD", "name": "SUPT Mohd Fairus Bin Jaafar" },
+      { "rank": "KBPJKK", "name": "DSP Tan Seng Guan" },
+      { "rank": "KU MPV", "full_name": "Ketua Unit MPV", "name": "ASP Ahmad Nazaruddin Bin HJ Abdul Rahim" },
+      { "rank": "KU URB", "full_name": "Ketua Unit Rondaan Bermotosikal", "name": "ASP Mohd Yusmen Bin Mohd Yusof" }
+    ],
+    "abbreviations": [
+      { "abbr": "IPD", "full": "Ibu Pejabat Polis Daerah" },
+      { "abbr": "KPD", "full": "Ketua Polis Daerah" },
+      { "abbr": "T/KPD", "full": "Timbalan Ketua Polis Daerah" },
+      { "abbr": "KBPJKK", "full": "Ketua Bahagian Pencegahan Jenayah dan Keselamatan Komuniti" },
+      { "abbr": "KU MPV", "full": "Ketua Unit MPV" },
+      { "abbr": "KU URB", "full": "Ketua Unit Rondaan Bermotosikal" },
+      { "abbr": "MPV", "full": "Mobile Patrol Vehicle" },
+      { "abbr": "URB", "full": "Unit Rondaan Bermotosikal" }
+    ],
+    "police_stations": [
+      {
+        "name": "IPD SUBANG JAYA",
+        "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
+        "coordinates": "3.045487844, 101.5890167",
+        "contact_number": "03-5636 2222"
+      },
+      {
+        "name": "BALAI POLIS USJ 8",
+        "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
+        "coordinates": "3.045590152, 101.5889226",
+        "contact_number": "03-5636 2222",
+        "sectors": [
+          { "number": "1", "name": "USJ 1, USJ 2, USJ 3, USJ 4, USJ 5, USJ 6, USJ 7, USJ 8" },
+          { "number": "2", "name": "Taman Perindustrian UEP Subang Jaya (TPUSJ), Taman Perindustrian Subang (TAPS), Taman Perindustrian USJ (TPUSJ), Taman Perindustrian UEP, Pinggiran USJ" },
+          { "number": "3", "name": "Taipan Business Centre" }
+        ],
+        "points_of_interest": {
+          "bank": [ "CIMB Bank", "Maybank", "Public Bank", "RHB Bank", "Bank Islam" ],
+          "kedai_emas": [ "Kedai Emas Sri Anggun", "Kedai Emas Poh Kong", "Kedai Emas Habib Jewel" ],
+          "stesen_minyak": [ "Shell USJ 8", "Petronas USJ 8" ],
+          "rumah_ibadat": [ "Masjid Al-Falah USJ 9", "Masjid An-Nur USJ 3" ],
+          "sekolah": [ "SK Seafield 3", "SMK USJ 4", "SK Dato' Onn Jaafar" ],
+          "universiti": [ "SEGi College Subang Jaya" ],
+          "kedai_serbaneka": [ "Speedmart 99", "7-Eleven" ],
+          "stesen_lrt_etc": [ "LRT USJ 7", "LRT Taipan" ],
+          "tempat_tumpuan": [ "Da Men Mall", "Summit USJ" ]
+        }
+      },
+      {
+        "name": "BALAI POLIS SUBANG JAYA",
+        "address": "Jalan SS 17/2, SS 17, 47500 Subang Jaya, Selangor",
+        "coordinates": "3.073870364, 101.5852245",
+        "contact_number": "03-5636 2222",
+        "sectors": [
+          { "number": "4", "name": "SS 12, SS 13, SS 14, SS 15, SS 16" },
+          { "number": "5", "name": "SS 17, SS 18, SS 19" },
+          { "number": "6", "name": "Tiada Maklumat Tambahan" }
+        ],
+        "points_of_interest": {
+          "bank": [ "Hong Leong Bank", "Bank Rakyat" ],
+          "stesen_minyak": [ "Caltex SS17", "Shell SS17" ],
+          "sekolah": [ "Sekolah Sri Kuala Lumpur", "SK SS17" ],
+          "universiti": [ "Taylor's College", "INTI International College" ],
+          "stesen_lrt_etc": [ "LRT SS15" ],
+          "tempat_tumpuan": [ "Subang Parade", "Empire Shopping Gallery" ]
+        }
+      },
+      {
+        "name": "BALAI POLIS BUKIT PUCHONG",
+        "address": "32-34, Jalan BPU 8, Bandar Puchong Utama, 47100 Puchong, Selangor",
+        "coordinates": "2.989854291, 101.6201365",
+        "contact
