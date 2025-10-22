@@ -1,350 +1,806 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini AI Chat Proxy (Apps Script JSONP)</title>
-    <style>
-        /* CSS Ringkas untuk Chat UI */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            max-height: 100vh;
-        }
-        #chat-window {
-            flex-grow: 1;
-            padding: 10px;
-            overflow-y: auto;
-            border-bottom: 1px solid #ccc;
-            background-color: #fff;
-            scroll-behavior: smooth;
-        }
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            background-color: #eee;
-            align-items: flex-end; /* Untuk align textarea ke bawah */
-        }
-        #user-input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none; /* Penting untuk kontrol ketinggian dengan JS */
-            max-height: 100px; /* Hadkan ketinggian */
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-        #send-button {
-            margin-left: 10px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            height: 40px; /* Sesuaikan dengan ketinggian minimum textarea */
-        }
-        #send-button:hover {
-            background-color: #0056b3;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop Gemini Google Earth</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+<style>
+/* * PENERANGAN:
+ * Menggunakan CSS Variables untuk pengurusan tema mod cerah dan gelap yang lebih bersih.
+ * Ini mengelakkan penggunaan !important dan memudahkan penyelenggaraan.
+ */
+:root {
+    /* Variables untuk Mod Cerah */
+    --bg-color: white;
+    --text-color: black;
+    --header-text-color: dodgerblue;
+    --border-color: rgba(0, 0, 0, 0.3);
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --placeholder-color: #666666;
+    --chat-bubble-user-bg: #DCF8C6;
+    --chat-bubble-gemini-bg: #E5E5EA;
+    --admin-text-color: grey;
+    --admin-issue-bg: #333;
+    --admin-issue-text: white;
+    --admin-contact-color: dodgerblue;
+}
 
-        /* Styling Mesej */
-        .chat-message {
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        .user-message {
-            background-color: #d1e7ff; /* Biru muda */
-            align-self: flex-end;
-            margin-left: auto;
-            text-align: right;
-        }
-        .gemini-message {
-            background-color: #e9ecef; /* Kelabu muda */
-            align-self: flex-start;
-            margin-right: auto;
-            text-align: left;
-        }
-        .typing-indicator {
-            font-style: italic;
-            color: #6c757d;
-        }
-    </style>
+/* Variables untuk Mod Gelap */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: white;
+        --header-text-color: yellow;
+        --border-color: rgba(255, 255, 255, 0.3);
+        --input-bg: rgba(255, 255, 255, 0.1);
+        --placeholder-color: #aaaaaa;
+        --chat-bubble-user-bg: #056641;
+        --chat-bubble-gemini-bg: #36454F;
+        --admin-text-color: #ccc;
+        --admin-issue-bg: white;
+        --admin-issue-text: black;
+        --admin-contact-color: #00ffff;
+    }
+}
+
+/* Global Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Reem Kufi', sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Animasi teks */
+.aligned-text {
+    display: inline-block;
+    animation: smoothEnter 0.8s ease-out forwards;
+    opacity: 0;
+    padding: 0;
+    color: var(--header-text-color);
+    transform: translateX(30px);
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td:first-child {
+    white-space: nowrap;
+    vertical-align: top;
+    padding-right: 10px;
+    transition: color 0.5s ease-in-out;
+}
+td:nth-child(2) {
+    vertical-align: top;
+    padding-right: 5px;
+    color: var(--text-color);
+    transition: color 0.5s ease-in-out;
+}
+td:first-child b { color: var(--text-color); transition: color 0.5s ease-in-out; }
+.nolink { text-decoration: none; color: inherit; }
+
+/* Button styling */
+.button {
+    width: 45%;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+}
+.button.glow-on-hover:before {
+    content: ''; position: absolute; top:-2px; left:-2px;
+    width: calc(100% + 4px); height: calc(100% + 4px);
+    background-size: 400%; z-index:-1; filter: blur(5px); opacity:0;
+    transition: opacity 0.3s ease-in-out; border-radius:10px;
+}
+.button.glow-on-hover:hover:before { opacity:1; }
+.glow-lawat:before {
+    background: linear-gradient(45deg, #ff0000,#ff4d4d,#ffffff,#ffa6a6,#ff0000,#00ffff,#ff0000);
+    animation: glowing-move 20s linear infinite;
+}
+.glow-lapor:before {
+    background: linear-gradient(45deg, #2323ff,#00ffff,#0000ff,#ffffff,#0000ff,#00ffff,#2323ff);
+    animation: glowing-move 20s linear infinite;
+}
+@keyframes glowing-move {
+    0% { background-position:0 0; }
+    50% { background-position:400% 0; }
+    100% { background-position:0 0; }
+}
+
+/* Frosted card */
+.frosted-card-effect {
+    display:block; width:100%; box-sizing:border-box; padding:6px;
+    border-radius:10px;
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size:30px 30px; background-attachment: fixed; background-blend-mode: overlay;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    box-shadow:0 4px 14px rgba(0,0,0,0.4); border:1px solid;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+.admin-issue-text.frosted-card-effect {
+    background-color: var(--admin-issue-bg);
+    color: var(--admin-issue-text);
+    border-color: var(--text-color);
+}
+
+/* Admin text blocks */
+.admin-text { 
+    position: relative; margin-top:20px; font-style:italic; font-size:10px; text-align:center; 
+    color: var(--admin-text-color);
+    transition: color 0.5s ease-in-out;
+}
+.admin-issue-text { margin-bottom:-1px; border-bottom-left-radius:0; border-bottom-right-radius:0; }
+.admin-contact-link {
+    text-decoration:none; font-weight:bold; display:flex; align-items:center; justify-content:center;
+    width:100%; box-sizing:border-box; padding:6px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    border:1px solid var(--text-color);
+    background-color:transparent; margin-top:0;
+    border-top-left-radius:0; border-top-right-radius:0;
+    transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    color: var(--admin-contact-color);
+}
+.admin-contact-link .icon { margin-right:3px; font-size:12px; }
+
+/* Modal */
+.modal { width:auto; height:auto; max-width:90vw; max-height:80vh; padding:20px;
+background-color:rgba(0,0,0,0.8); border-radius:10px; overflow:auto; position:fixed;
+top:50%; left:50%; transform:translate(-50%,-50%); z-index:1000; }
+@media(max-width:768px){ .modal{ max-width:90vw; max-height:70vh; } }
+@media(max-width:480px){ .modal{ max-width:90vw; max-height:60vh; } }
+@media(max-width:320px){ .modal{ max-width:90vw; max-height:50vh; } }
+
+/* Keyframe */
+@keyframes smoothEnter { 0%{transform:translateX(30px);opacity:0;}100%{transform:translateX(0);opacity:1;} }
+
+/* Gaya butang Hantar */
+#send-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width: 90px;
+}
+#send-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+@media (prefers-color-scheme: dark) {
+    #send-btn:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+}
+#send-btn:active, #send-btn.active {
+    background-color: #0000ff;
+    color: #f0ff00;
+    border-color: #f0ff00;
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Tambahan class untuk mesej chat */
+.chat-message {
+    font-family: inherit;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-color);
+}
+.chat-container-with-bg {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    background-image: url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp');
+    background-color: rgba(255, 255, 255, 0.15);
+    background-repeat: repeat;
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4); 
+    padding: 6px;
+    transition: border-color 0.5s ease-in-out;
+    border: 1px solid var(--border-color);
+}
+#chatbox {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 85%;
+}
+.message-container.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: none;
+    overflow: hidden;
+    transition: border-color 0.5s ease-in-out;
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.message-bubble {
+    padding: 8px 12px;
+    word-wrap: break-word;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+.message-bubble.user { background-color: var(--chat-bubble-user-bg); }
+.message-bubble.gemini { border-radius: 5px 15px 15px 15px; background-color: var(--chat-bubble-gemini-bg); }
+.message-container.user .message-bubble { border-radius: 15px 15px 5px 15px; }
+#input-area {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.5s ease-in-out;
+}
+/* CSS untuk textarea yang baru */
+#userInput {
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--input-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    resize: none; /* Penting: Untuk mengelakkan pengguna mengubah saiz kotak secara manual */
+    overflow-y: hidden; /* Sembunyikan scrollbar */
+}
+#userInput::placeholder { color: var(--placeholder-color); }
+#userInput:focus { box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 123, 255, 0.5); }
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #666;
+    border-radius: 50%;
+    margin-right: 2px;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(3) { animation-delay: 0s; }
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.toast {
+    background-color: rgba(51, 51, 51, 0.85);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInOut 4s forwards;
+    transition: opacity 0.5s, transform 0.5s;
+    font-size: 14px;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+/* Gaya untuk butang salin */
+.copy-btn {
+    position: absolute;
+    top: 5px; /* Sesuaikan kedudukan menegak */
+    right: 5px; /* Sesuaikan kedudukan mendatar */
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--text-color);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.copy-btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.message-bubble.gemini:hover .copy-btn {
+    opacity: 1; /* Tunjukkan butang apabila hover */
+}
+@media (max-width: 768px) {
+    #input-area { padding: 8px; }
+    #userInput, #send-btn { font-size: 13px; padding: 8px 12px; }
+    .message-bubble { font-size: 13px; padding: 8px 12px; }
+}
+</style>
 </head>
 <body>
+<div style="background:url('https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/backgroundlogo.webp') repeat; background-size:30px 30px; background-attachment:fixed; padding:0; margin:auto; width:100%; max-width:100vw;">
+<div style="font-size:14px; padding:10px; border-radius:10px; position:relative; min-height:500px; overflow-y:auto;">
 
-    <div id="chat-window">
-        </div>
+<div class="chat-container-with-bg">
+    <div id="chatbox"></div>
+    <div id="typingIndicator" class="message-container gemini" style="display:none; align-self: flex-start; max-width: none;">
+        <div class="profile-pic gemini">
+            <img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI sedang menaip">
+        </div>
+        <div class="message-bubble gemini">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <div id="input-area">
+        <textarea id="userInput" placeholder="Tanya soalan..." rows="1"></textarea>
+        <button id="send-btn">Hantar</button>
+    </div>
+</div>
+<div style="display:flex; justify-content:space-between; width:100%; padding:15px 0; gap:10px;">
+    <button id="newChatBtn" class="button lawat glow-on-hover glow-lawat">💬 CHAT BARU</button>
+    <a href="https://linktr.ee/BPJKK" class="button lapor glow-on-hover glow-lapor" target="_blank" rel="noopener noreferrer">🚨 BPJKK</a>
+</div>
 
-    <div class="chat-input">
-        <textarea id="user-input" placeholder="Tanya Matkie..." rows="1"></textarea>
-        <button id="send-button">Hantar</button>
-    </div>
+<img src='https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/background/maincover.webp' width='100%' style='border-radius:10px; display:block; margin:0 auto; box-shadow:0px 4px 15px rgba(0,0,0,0.5);' loading="lazy" alt="Imej latar belakang dengan logo">
 
-    <script>
-        // ===============================================
-        // KONFIGURASI APLIKASI (WAJIB CHECK!)
-        // ===============================================
-        const CONFIG = {
-            // 🚨 WAJIB GANTI: URL deployment Apps Script yang BARU (JSONP)
-            // PASTIKAN URL NI DARI DEPLOYMENT BARU YANG GUNA doGet JSONP
-            API_URL: "https://script.google.com/macros/s/AKfycbzJhpoM5Iqr0OiVPPBH8NLuLkrvSP-beXzCCmMkq1kLszRUh902VbkoMAW9BYcLPaYvFg/exec", 
-            INITIAL_PROMPT: "Anda adalah Gemini AI yang ramah, kelakar, dan bercakap dalam loghat Bahasa Melayu Kedah Malaysia yang pekat. Jawab semua soalan dengan ringkas, padat, dan gunakan emoji. Jangan sebut mengenai etika atau keselamatan melainkan ditanya. Selalu panggil pengguna sebagai 'Matkie'.",
-            MAX_HISTORY_SIZE: 10 // Simpan 5 pasang (user + gemini)
-        };
+<p class="admin-text">
+<span class="admin-issue-text frosted-card-effect">Sebarang isu berkaitan peta sektor ini.</span>
+<a href="mailto:urbipdsubangjaya@gmail.com?subject=Laporan Masalah Peta Sektor Aisuja&body=Saya menemui masalah berikut:%0A%0A" class="admin-contact-link">
+<span class="icon">⚠️</span> Hubungi Admin Pentadbir Peta BPJKK
+</a>
+</p>
+</div>
+</div>
+<div id="toast-container"></div>
 
-        // ===============================================
-        // STATE & DOM ELEMENTS
-        // ===============================================
-        const DOM = {
-            chatWindow: document.getElementById('chat-window'),
-            userInput: document.getElementById('user-input'),
-            sendButton: document.getElementById('send-button')
-        };
+<script>
+    // == UTILITIES & KONFIGURASI ==
+    const DOM = {
+        chatbox: document.getElementById('chatbox'),
+        typingIndicator: document.getElementById('typingIndicator'),
+        inputArea: document.getElementById('input-area'),
+        userInput: document.getElementById('userInput'),
+        sendBtn: document.getElementById('send-btn'),
+        toastContainer: document.getElementById('toast-container'),
+        newChatBtn: document.getElementById('newChatBtn')
+    };
+
+    const CONFIG = {
+        // 🚨 GANTI URL INI: Guna URL Apps Script BARU (JSONP doGet)
+        API_URL: "https://script.google.com/macros/s/AKfycbzJhpoM5Iqr0OiVPPBH8NLuLkrvSP-beXzCCmMkq1kLszRUh902VbkoMAW9BYcLPaYvFg/exec", // <-- INI CONTOH URL LAMA, WAJIB GANTI
         
-        // State aplikasi
-        const appState = {
-            history: [],
-            isTyping: false
-        };
-
-        // ===============================================
-        // UTILITIES
-        // ===============================================
-
-        /** Membina prompt sistem berdasarkan sejarah sedia ada */
-        function buildSystemPrompt() {
-            return CONFIG.INITIAL_PROMPT;
-        }
+        // KEKALKAN: Kita tak guna API_KEY ni secara langsung lagi, ia ada dalam Apps Script (Code.gs)
+        API_KEY: "AIzaSyAykb_VwXjS6ohN1XqQdjKJy-rlkUxjk2c", 
         
-        /** Simpan sejarah chat ke Local Storage */
-        function saveChatHistory() {
-            // Hadkan sejarah
-            const historyToSave = appState.history.slice(-CONFIG.MAX_HISTORY_SIZE);
-            localStorage.setItem('chatHistory', JSON.stringify(historyToSave));
-        }
+        urls: [
+            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorsettings.json',
+            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorpeopleabbr.json',
+            'https://raw.githubusercontent.com/urbipdsubangjaya/maps/main/data/sektorlocations.json'
+        ]
+    };
 
-        /** Muat sejarah chat dari Local Storage */
-        function loadChatHistory() {
-            const history = localStorage.getItem('chatHistory');
-            if (history) {
-                try {
-                    appState.history = JSON.parse(history);
-                    appState.history.forEach(msg => appendMessage(msg.role, msg.parts[0].text, false));
-                    scrollToBottom();
-                } catch (e) {
-                    console.error("Gagal muat sejarah chat:", e);
-                    appState.history = [];
+    let appState = {
+        history: [],
+        isTyping: false,
+        jsonData: {}
+    };
+
+    // == PENGENDALIAN DATA ==
+    async function loadAllData() {
+        showToast("⏳ Memuatkan data... Sila tunggu.");
+        try {
+            const responses = await Promise.all(CONFIG.urls.map(url => fetch(url)));
+
+            for (const res of responses) {
+                if (!res.ok) {
+                    throw new Error(`Gagal memuat fail: ${res.url} (${res.status} ${res.statusText})`);
                 }
-            } else {
-                console.log("Tiada sejarah chat dijumpai. Mulakan sembang baru.");
-            }
-        }
-        
-        // ... (Fungsi clearChatHistory, showToast dikekalkan, tapi kita fokus pada API)
-
-        /** Laraskan ketinggian textarea */
-        function adjustTextareaHeight(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = (textarea.scrollHeight) + 'px';
-        }
-
-        /** Tatal ke bawah chat window */
-        function scrollToBottom() {
-            DOM.chatWindow.scrollTop = DOM.chatWindow.scrollHeight;
-        }
-
-        /** Tunjuk/Sembunyi indicator menaip */
-        function setTypingIndicator(show) {
-            appState.isTyping = show;
-            let indicator = document.getElementById('typing-indicator');
-            if (!indicator) {
-                indicator = document.createElement('div');
-                indicator.id = 'typing-indicator';
-                indicator.className = 'chat-message gemini-message typing-indicator';
-                indicator.innerHTML = 'Sedang menaip...'; 
-                DOM.chatWindow.appendChild(indicator);
             }
 
-            if (show) {
-                indicator.style.display = 'block';
-            } else {
-                indicator.style.display = 'none';
-            }
-            scrollToBottom();
+            const data = await Promise.all(responses.map(res => res.json()));
+
+            const settingsData = data[0];
+            const peopleData = data[1];
+            const locationsData = data[2];
+
+            appState.jsonData = {
+                ...settingsData,
+                "data": {
+                    "officer_list": peopleData.officer_list,
+                    "abbreviations": peopleData.abbreviations,
+                    "police_stations": locationsData.police_stations
+                }
+            };
+
+            console.log("✅ Data berjaya dimuat:", appState.jsonData);
+            showToast("👍 Data berjaya dimuat!");
+            loadChatHistory();
+        } catch (error) {
+            console.error("❌ Ralat semasa memuat data:", error);
+            showToast("⚠️ Ralat! Ada masalah memuat maklumat. Sila cuba lagi nanti.");
+            DOM.chatbox.innerHTML = `<div class="message-container gemini"><div class="profile-pic gemini"><img src="https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif" alt="Aisuja AI"></div><div class="message-bubble gemini">Maaf, ada masalah teknikal. Sila cuba muat semula laman.</div></div>`;
+        }
+    }
+
+    // == PENGURUSAN & PAPARAN UI ==
+    function showToast(message) {
+        const toastDiv = document.createElement('div');
+        toastDiv.className = 'toast';
+        toastDiv.textContent = message;
+        DOM.toastContainer.appendChild(toastDiv);
+
+        setTimeout(() => {
+            toastDiv.style.opacity = '0';
+            toastDiv.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                if (toastDiv.parentNode === DOM.toastContainer) {
+                    DOM.toastContainer.removeChild(toastDiv);
+                }
+            }, 500);
+        }, 3500);
+    }
+
+    function scrollToBottom(element) {
+        element.scrollTop = element.scrollHeight;
+    }
+
+    function appendMessage(role, text) {
+        const messageContainer = document.createElement('div');
+        messageContainer.className = `message-container ${role}`;
+
+        const profilePicSrc = (role === 'user') 
+            ? "https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/writing.gif"
+            : "https://raw.githubusercontent.com/urbipdsubangjaya/maps/refs/heads/main/emoji/aisuja.gif";
+        const profilePicAlt = (role === 'user') ? "Profil Pengguna" : "Profil Aisuja AI";
+
+        let messageBubbleContent = `<div class="chat-message">${text}</div>`;
+        if (role === 'gemini') {
+            messageBubbleContent += `<button class="copy-btn" onclick="copyToClipboard(this.parentElement)">Salin</button>`;
         }
 
-        /** Tambah mesej ke UI */
-        function appendMessage(role, text, shouldScroll = true) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${role}-message`;
-            
-            // Guna innerHTML untuk support line breaks
-            messageDiv.innerHTML = text.replace(/\n/g, '<br>');
-            
-            DOM.chatWindow.appendChild(messageDiv);
-            if (shouldScroll) {
-                scrollToBottom();
-            }
+        messageContainer.innerHTML = `
+            <div class="profile-pic ${role}">
+                <img src="${profilePicSrc}" alt="${profilePicAlt}">
+            </div>
+            <div class="message-bubble ${role}">
+                ${messageBubbleContent}
+            </div>`;
+        DOM.chatbox.appendChild(messageContainer);
+        scrollToBottom(DOM.chatbox);
+    }
+
+    // Fungsi ini kekal sama
+    function displayChatHistory() {
+        DOM.chatbox.innerHTML = '';
+        appState.history.forEach(message => {
+            appendMessage(message.role, message.parts[0].text);
+        });
+    }
+
+    // Fungsi untuk salin teks ke clipboard - KEKAL SAMA
+    async function copyToClipboard(element) {
+        const textToCopy = element.querySelector('.chat-message').innerText;
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            showToast("Teks berjaya disalin!");
+        } catch (err) {
+            console.error('Gagal salin teks: ', err);
+            showToast("Gagal menyalin teks.");
         }
+    }
 
-
-        // ===============================================
-        // == PENGENDALIAN API (JSONP CLIENT) ==
-        // ===============================================
-
-        // Fungsi CALLBACK GLOBAL yang akan dipanggil oleh Apps Script
-        window.handleGeminiResponse = function(data) {
-            setTypingIndicator(false);
-            
-            try {
-                // 🚨 Semakan Kritis 1: Jika Proxy hantar ralat (dari Apps Script)
-                if (data.error) {
-                    throw new Error(`Ralat Server Proxy: ${data.error.message}`);
-                }
-                
-                // 🚨 Semakan Kritis 2: Jika jawapan dikunci atau kosong
-                if (!data.candidates || data.candidates.length === 0 || !data.candidates[0].content) {
-                     if (data.candidates && data.candidates[0].finishReason === 'SAFETY') {
-                        throw new Error("Jawapan disekat oleh Safety Settings (Gagal Jawab).");
-                     }
-                    throw new Error("Jawapan AI kosong atau tidak lengkap.");
-                }
-                
-                const geminiResponseText = data.candidates[0].content.parts[0].text;
-                if (!geminiResponseText || geminiResponseText.trim() === "") {
-                    throw new Error("Jawapan AI kosong (String kosong).");
-                }
-
-                // 3. Tambah jawapan AI ke UI dan History
-                appendMessage('model', geminiResponseText); 
-                appState.history.push({
-                    role: "model",
-                    parts: [{ text: geminiResponseText }]
+    // == LOGIK UTAMA ==
+    function buildSystemPrompt() {
+        if (!appState.jsonData || !appState.jsonData.data || !appState.jsonData.general) {
+            console.error("Data JSON tidak dimuat sepenuhnya.");
+            return "";
+        }
+        const { prompt_details, data } = appState.jsonData;
+        const promptLines = [];
+        promptLines.push(prompt_details.rules.join('\n'));
+        promptLines.push("\n**Data Rujukan:**\n");
+        promptLines.push("- **Senarai Pegawai:**");
+        data.officer_list.forEach(p => {
+            const name = p.full_name ? `${p.full_name} (${p.rank})` : p.name;
+            promptLines.push(`  - **${name}**: ${p.name}`);
+        });
+        promptLines.push("\n- **Maklumat Balai Polis:**");
+        data.police_stations.forEach(b => {
+            promptLines.push(`  - **${b.name}**`);
+            promptLines.push(`    - **Alamat**: ${b.address}`);
+            promptLines.push(`    - **Telefon**: ${b.contact_number}`);
+            if (b.sectors) {
+                b.sectors.forEach(s => {
+                    promptLines.push(`    - **Sektor ${s.number}**: ${s.name}`);
                 });
-                
-                // 4. Simpan sejarah chat
-                saveChatHistory();
-
-            } catch (error) {
-                console.error("❌ Ralat API/Sistem JSONP:", error);
-                
-                // Tunjuk ralat pada UI
-                const errorMessage = `❌ ERROR: ${error.message.substring(0, 80)}... Cuba lagi.`;
-                appendMessage('gemini', errorMessage); 
-                
-            } finally {
-                // Bersihkan skrip tag yang kita cipta
-                const script = document.getElementById('geminiScript');
-                if (script) script.remove();
-                
-                DOM.userInput.value = '';
-                adjustTextareaHeight(DOM.userInput);
             }
-        }
-
-        /** Fungsi utama menghantar mesej dan memanggil API Apps Script (JSONP) */
-        async function sendMessage(userMessage) {
-            if (appState.isTyping || !userMessage.trim()) return;
-
-            // 1. Tambah mesej user ke UI dan History
-            appendMessage('user', userMessage);
-            appState.history.push({
-                role: "user",
-                parts: [{ text: userMessage }]
-            });
-
-            setTypingIndicator(true);
-
-            try {
-                // 2. Format history untuk API Call
-                const contentsForApi = appState.history.map(msg => {
-                    return {
-                        role: (msg.role === 'gemini' ? 'model' : msg.role),
-                        parts: msg.parts
-                    };
+            if (b.points_of_interest) {
+                b.points_of_interest.forEach(poi => {
+                    promptLines.push(`    - **${poi.name}**: ${poi.address}, ${poi.contact_number}`);
                 });
-
-                const systemInstruction = buildSystemPrompt();
-
-                const requestBody = {
-                    config: {
-                        systemInstruction: systemInstruction,
-                        temperature: 0.7,
-                    },
-                    contents: contentsForApi
-                };
-
-                // 🚨 JSONP: Kita hantar payload sebagai parameter URL 'json'
-                const payloadUrl = encodeURIComponent(JSON.stringify(requestBody));
-                
-                // Kita hantar nama fungsi callback kita sekali!
-                const fullUrl = `${CONFIG.API_URL}?json=${payloadUrl}&callback=handleGeminiResponse`;
-
-                // 3. Dynamic Script Injection (menggantikan fetch untuk elak CORS)
-                const script = document.createElement('script');
-                script.src = fullUrl;
-                script.id = 'geminiScript';
-                document.head.appendChild(script);
-                
-            } catch (error) {
-                // Ralat ini hanya berlaku jika Dynamic Script Injection tu gagal.
-                console.error("❌ Ralat API/Sistem:", error);
-                setTypingIndicator(false);
-
-                const errorMessage = `❌ FATAL ERROR: ${error.message.substring(0, 80)}...`;
-                
-                appendMessage('gemini', errorMessage); 
-                
-                DOM.userInput.value = '';
-                adjustTextareaHeight(DOM.userInput);
             }
-        }
-        
-        // ===============================================
-        // EVENT LISTENERS & INITIATION
-        // ===============================================
-        
-        /** Handler untuk butang hantar */
-        function handleSend() {
-            const message = DOM.userInput.value.trim();
-            sendMessage(message);
-        }
-        
-        // Butang hantar
-        DOM.sendButton.addEventListener('click', handleSend);
-
-        // Enter key
-        DOM.userInput.addEventListener('keydown', (e) => {
-            // Hanya hantar bila Enter ditekan tanpa Shift
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault(); 
-                handleSend();
-            }
-            setTimeout(() => adjustTextareaHeight(DOM.userInput), 0);
+        });
+        promptLines.push("\n- **Singkatan:**");
+        data.abbreviations.forEach(a => {
+            promptLines.push(`  - **${a.abbr}**: ${a.full}`);
         });
 
-        // Laraskan ketinggian on input
-        DOM.userInput.addEventListener('input', () => adjustTextareaHeight(DOM.userInput));
-
-        // Mula-mula, load data
-        loadChatHistory();
+        return promptLines.join('\n');
+    }
+    
+    // FUNGSI CALLBACK GLOBAL JSONP
+    window.handleGeminiResponse = function(apiData) {
+        // Pastikan skrip tag yang kita cipta dibuang
+        const script = document.getElementById('geminiScript');
+        if (script) script.remove();
         
-        // Mesej aluan jika tiada sejarah
-        if (appState.history.length === 0) {
-            appendMessage('gemini', "Assalamualaikum! 👋 Saya Aisuja sedia bersembang. Sila tanya saya");
-        }
-    </script>
+        try {
+            // 🚨 Check Ralat dari Apps Script
+            if (apiData.error) {
+                throw new Error(`Ralat Server Proxy/API: ${apiData.error.message}`);
+            }
 
+            const geminiText = apiData?.candidates?.[0]?.content?.parts?.[0]?.text;
+            
+            if (!geminiText) {
+                throw new Error("Format respons API tidak sah atau tiada teks ditemui.");
+            }
+
+            // 3. Proses Jawapan
+            processGeminiResponse(geminiText);
+        } catch (error) {
+            handleApiError(error);
+        } finally {
+            setUIState(false);
+            resetInputArea();
+        }
+    }
+
+
+    async function sendMessage() {
+        const userInputVal = DOM.userInput.value.trim();
+        if (!userInputVal || appState.isTyping) {
+            return;
+        }
+
+        setUIState(true);
+        addMessageAndHistory('user', userInputVal);
+        showTypingIndicator();
+
+        try {
+            let chatHistoryToSend = [...appState.history];
+            
+            // Logik untuk hantar system prompt pada permulaan
+            if (appState.history.length === 1) {
+                chatHistoryToSend = [
+                    { "role": "user", "parts": [{ "text": buildSystemPrompt() }] },
+                    { "role": "model", "parts": [{ "text": appState.jsonData.general.welcome_message }] },
+                    ...chatHistoryToSend
+                ];
+            } else {
+                chatHistoryToSend = appState.history.slice(-6); // Hadkan sejarah yang dihantar
+            }
+            
+            // Bina Request Body untuk Apps Script
+            const requestBody = {
+                contents: chatHistoryToSend
+            };
+
+            // 🚨 JSONP HACK: Hantar payload sebagai parameter URL GET
+            const payloadUrl = encodeURIComponent(JSON.stringify(requestBody));
+            
+            // Tambah parameter callback yang akan memanggil window.handleGeminiResponse
+            const fullUrl = `${CONFIG.API_URL}?json=${payloadUrl}&callback=handleGeminiResponse`;
+
+            // Dynamic Script Injection (menggantikan fetch untuk elak CORS)
+            const script = document.createElement('script');
+            script.src = fullUrl;
+            script.id = 'geminiScript';
+            document.head.appendChild(script);
+            
+            // KITA TAK PERLU TUNGGU FETCH, SEBAB JAWAPAN DATANG MELALUI SCRIPT INJECTION (handleGeminiResponse)
+
+        } catch (error) {
+            handleApiError(error);
+            setUIState(false);
+            resetInputArea();
+        }
+    }
+
+    function setUIState(isTyping) {
+        appState.isTyping = isTyping;
+        DOM.userInput.disabled = isTyping;
+        DOM.sendBtn.disabled = isTyping;
+        isTyping ? DOM.sendBtn.classList.add('active') : setTimeout(() => DOM.sendBtn.classList.remove('active'), 200);
+    }
+
+    function addMessageAndHistory(role, text) {
+        appendMessage(role, text);
+        appState.history.push({
+            "role": role,
+            "parts": [{ "text": text }]
+        });
+        saveChatHistory();
+    }
+
+    function showTypingIndicator() {
+        DOM.typingIndicator.style.display = 'flex';
+        scrollToBottom(DOM.chatbox);
+    }
+
+    function processGeminiResponse(text) {
+        DOM.typingIndicator.style.display = 'none';
+        addMessageAndHistory('gemini', text);
+        showToast("✅ Mesej telah diterima!");
+    }
+
+    function handleApiError(error) {
+        console.error("Ralat:", error);
+        DOM.typingIndicator.style.display = 'none';
+        appendMessage('gemini', `❌ Maaf, ada masalah teknikal: ${error.message}. Sila cuba Chat Baru.`);
+        showToast("⚠️ Ralat! Ada masalah teknikal.");
+    }
+
+    function resetInputArea() {
+        DOM.userInput.value = '';
+        DOM.userInput.style.height = 'auto';
+    }
+
+    function startNewChat() {
+        appState.history = [];
+        saveChatHistory();
+        DOM.chatbox.innerHTML = '';
+
+        if (Object.keys(appState.jsonData).length === 0) {
+            loadAllData();
+            return;
+        }
+        
+        appendMessage('gemini', appState.jsonData.general.welcome_message);
+        appState.history.push({
+            "role": "model",
+            "parts": [{"text": appState.jsonData.general.welcome_message}]
+        });
+        saveChatHistory();
+        showToast("💬 Chat baru dimulakan.");
+    }
+
+    // == PENYIMPANAN TEMPATAN & PENDENGAR ACARA ==
+    function saveChatHistory() {
+        try {
+            localStorage.setItem('chatHistory', JSON.stringify(appState.history));
+            console.log("Sejarah sembang berjaya disimpan.");
+        } catch (e) {
+            if (e.name === 'QuotaExceededError') {
+                console.warn("Local Storage penuh. Cuba padankan mesej lama.");
+                appState.history.splice(0, 10);
+                
+                try {
+                    localStorage.setItem('chatHistory', JSON.stringify(appState.history));
+                    showToast("🗑 Ruang storan penuh, sejarah lama dipadamkan untuk memberi ruang.");
+                    console.log("Sejarah sembang telah dikemas kini selepas pemadaman.");
+                } catch (e2) {
+                    showToast("❌ Storan penuh. Sejarah tidak dapat disimpan.");
+                    console.error("Gagal simpan walaupun selepas memadam mesej:", e2);
+                }
+            } else {
+                console.error("Ralat ketika menyimpan ke Local Storage:", e);
+            }
+        }
+    }
+
+    function loadChatHistory() {
+        const savedHistory = localStorage.getItem('chatHistory');
+        if (savedHistory) {
+            try {
+                appState.history = JSON.parse(savedHistory);
+                displayChatHistory();
+            } catch (e) {
+                console.error("Ralat semasa menghuraikan sejarah:", e);
+                startNewChat();
+            }
+        } else {
+            startNewChat();
+        }
+    }
+
+    // Pendengar acara
+    DOM.userInput.addEventListener('input', () => {
+        DOM.userInput.style.height = 'auto';
+        DOM.userInput.style.height = DOM.userInput.scrollHeight + 'px';
+    });
+
+    DOM.userInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            sendMessage();
+            event.preventDefault();
+        }
+    });
+
+    DOM.sendBtn.addEventListener('click', sendMessage);
+    DOM.newChatBtn.addEventListener('click', startNewChat);
+
+    // Panggilan awal
+    window.onload = function() {
+        loadAllData();
+    };
+</script>
 </body>
 </html>
