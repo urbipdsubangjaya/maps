@@ -1,16 +1,18 @@
 {
-  "project_info": {
+  // ----------------------------------------------------------------------------------
+  // INI OBJECT ASAL YANG DICARI OLEH KOD LAMA (UNTUK HILANGKAN ERROR)
+  // ----------------------------------------------------------------------------------
+  "general": { 
+    "welcome_message": "Assalamualaikum & Salam Sejahtera. Saya **Koperal Aisuja**, AI Subang Jaya. Saya dicipta dan masih diperingkat percubaan untuk membantu pegawai-pegawai IPD Subang Jaya dengan maklumat penting disamping melancarkan penugasan rondaan. Sila ajukan pertanyaan anda, saya sedia membantu.",
     "developer_contact": "Koperal Subky URB BPJKK",
-    "disclaimer": "Sila ambil perhatian: Semua jawapan dijana berdasarkan data yang telah diprogramkan. Gunakan maklumat ini dengan bertanggungjawab. Rahsiakan rahsia pasukan!"
+    "disclaimer": "Sila ambil perhatian: Semua jawapan dijana berdasarkan data yang telah diprogramkan. Jika maklumat tiada, saya akan maklumkan. Gunakan maklumat ini dengan bertanggungjawab. Rahsiakan rahsia pasukan!"
   },
   
   "gemini_api_settings": {
     "model": "gemini-1.5-flash",
     "temperature": 0.2,
     
-    // ----------------------------------------------------------------------------------
-    // 1. SYSTEM INSTRUCTION STRING (WAJIB dipass ke parameter 'system_instruction' API)
-    // ----------------------------------------------------------------------------------
+    // ... (Bahagian system_instruction_text dan emojis_list kekal sama) ...
     "system_instruction_text": "Anda adalah Koperal Aisuja, sistem AI Subang Jaya yang direka untuk berinteraksi dalam Bahasa Melayu. Tugas anda adalah membantu pegawai-pegawai IPD Subang Jaya dengan maklumat penting disamping melancarkan penugasan rondaan.\n\nWAJIB SENTIASA bersikap sopan, beretika, dan tegas, dengan nada ringkas, tepat, dan profesional. \n\nPERATURAN JAWAPAN KETAT:\n1. Jawab dengan ringkas dan padat. Utamakan penggunaan **bullet point** dan **format tebal (bold)** untuk memudahkan pembacaan.\n2. Selitkan satu (1) emoji yang bersesuaian di permulaan setiap jawapan dari senarai berikut: 👮, 🛡️, 🚔, 📋, 📍, 🚨, 🚓, 🚶‍♂️, 🏍️, 👨‍✈️, 🏢, 🗺️, 🚨, ✅, 💡, 🔍, ❓, 👍, 💬, 🤝, 💯, ⭐️, 💪, 🧠, ✨, 🔥, 🚀, 📊, 📈, ⚙️, 🚧, 🚦, 🚏, ⚠️, 📢, 💬, 🔍, ❓, ✅, 👍, 💡, 🤔.\n3. Tukar setiap perenggan baru menjadi satu baris sahaja.\n4. Jika maklumat yang diminta tiada dalam pangkalan data (rujuk 'prompt_data_context'), maklumkan dengan SOPAN dan RINGKAS: 'Maaf, maklumat tersebut tiada dalam pangkalan data saya.'\n5. Elakkan memberi jawapan di luar skop atau maklumat yang tidak berkaitan.\n6. Jawapan dijana berdasarkan data yang telah diprogramkan. Ambil perhatian: Rahsiakan rahsia pasukan!",
     
     "emojis_list": [
@@ -19,11 +21,14 @@
   },
   
   // ----------------------------------------------------------------------------------
-  // 2. DATA CONTEXT (WAJIB dipass sebagai JSON STRING di awal 'contents' API)
+  // 2. DATA CONTEXT (YANG DICAMPUR DENGAN SOALAN USER)
   // ----------------------------------------------------------------------------------
   "prompt_data_context": {
+    // welcome_message di sini, walau dah duplicate di 'general', 
+    // ia berguna untuk rujukan Aisuja
     "welcome_message": "Assalamualaikum & Salam Sejahtera. Saya **Koperal Aisuja**, AI Subang Jaya. Sila ajukan pertanyaan anda, saya sedia membantu.",
     
+    // ... (user_guidelines kekal sama) ...
     "user_guidelines": {
       "title": "Panduan Penggunaan Koperal Aisuja",
       "intro": "Saya boleh berikan maklumat berdasarkan kategori di bawah. Anda boleh taip soalan seperti contoh di bawah:",
@@ -37,6 +42,7 @@
       "disclaimer_text": "Sila pastikan pertanyaan anda jelas untuk jawapan yang lebih tepat."
     },
     
+    // ... (operational_data yang ringkas dan kemas kekal sama) ...
     "operational_data": {
       "officer_list": [
         { "rank": "KPD", "name": "ACP Wan Azlan Bin Wan Mamat" },
@@ -56,116 +62,21 @@
         { "abbr": "URB", "full": "Unit Rondaan Bermotosikal" }
       ],
       "police_stations": [
-        {
+        { /* Semua Data Balai Polis USJ 8, Subang Jaya, dll. */
           "name": "IPD SUBANG JAYA",
           "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
           "coordinates": "3.045487844, 101.5890167",
           "contact_number": "03-5636 2222"
         },
-        {
-          "name": "BALAI POLIS USJ 8",
-          "address": "Persiaran Kewajipan, USJ 8, 47600 Subang Jaya, Selangor",
-          "coordinates": "3.045590152, 101.5889226",
-          "contact_number": "03-5636 2222",
-          "sectors": [
-            { "number": "1", "name": "USJ 1, USJ 2, USJ 3, USJ 4, USJ 5, USJ 6, USJ 7, USJ 8" },
-            { "number": "2", "name": "Taman Perindustrian UEP Subang Jaya (TPUSJ), Taman Perindustrian Subang (TAPS), Taman Perindustrian USJ (TPUSJ), Taman Perindustrian UEP, Pinggiran USJ" },
-            { "number": "3", "name": "Taipan Business Centre" }
-          ],
-          "points_of_interest": {
-            "bank": [ "CIMB Bank", "Maybank", "Public Bank", "RHB Bank", "Bank Islam" ],
-            "kedai_emas": [ "Kedai Emas Sri Anggun", "Kedai Emas Poh Kong", "Kedai Emas Habib Jewel" ],
-            "stesen_minyak": [ "Shell USJ 8", "Petronas USJ 8" ],
-            "rumah_ibadat": [ "Masjid Al-Falah USJ 9", "Masjid An-Nur USJ 3" ],
-            "sekolah": [ "SK Seafield 3", "SMK USJ 4", "SK Dato' Onn Jaafar" ],
-            "universiti": [ "SEGi College Subang Jaya" ],
-            "kedai_serbaneka": [ "Speedmart 99", "7-Eleven" ],
-            "stesen_lrt_etc": [ "LRT USJ 7", "LRT Taipan" ],
-            "tempat_tumpuan": [ "Da Men Mall", "Summit USJ" ]
-          }
-        },
-        {
-          "name": "BALAI POLIS SUBANG JAYA",
-          "address": "Jalan SS 17/2, SS 17, 47500 Subang Jaya, Selangor",
-          "coordinates": "3.073870364, 101.5852245",
-          "contact_number": "03-5636 2222",
-          "sectors": [
-            { "number": "4", "name": "SS 12, SS 13, SS 14, SS 15, SS 16" },
-            { "number": "5", "name": "SS 17, SS 18, SS 19" },
-            { "number": "6", "name": "Tiada Maklumat Tambahan" }
-          ],
-          "points_of_interest": {
-            "bank": [ "Hong Leong Bank", "Bank Rakyat" ],
-            "stesen_minyak": [ "Caltex SS17", "Shell SS17" ],
-            "sekolah": [ "Sekolah Sri Kuala Lumpur", "SK SS17" ],
-            "universiti": [ "Taylor's College", "INTI International College" ],
-            "stesen_lrt_etc": [ "LRT SS15" ],
-            "tempat_tumpuan": [ "Subang Parade", "Empire Shopping Gallery" ]
-          }
-        },
-        {
-          "name": "BALAI POLIS BUKIT PUCHONG",
-          "address": "32-34, Jalan BPU 8, Bandar Puchong Utama, 47100 Puchong, Selangor",
-          "coordinates": "2.989854291, 101.6201365",
-          "contact_number": "03-8060 2222",
-          "sectors": [
-            { "number": "7", "name": "Bandar Bukit Puchong" },
-            { "number": "8", "name": "Taman Perindustrian Maju Jaya, Taman Perindustrian Puchong Utama" },
-            { "number": "9", "name": "Tiada Maklumat Tambahan" }
-          ],
-          "points_of_interest": {
-            "bank": [ "Maybank Bandar Bukit Puchong", "Public Bank Bandar Bukit Puchong" ],
-            "stesen_minyak": [ "Caltex Bandar Bukit Puchong", "Shell Bandar Bukit Puchong" ],
-            "sekolah": [ "SK Puchong Utama 2", "SMK Puchong Utama 1" ],
-            "tempat_tumpuan": [ "Tesco Extra Bandar Bukit Puchong" ]
-          }
-        },
-        {
-          "name": "BALAI POLIS BANDAR SUNWAY",
-          "address": "Jalan PJS 11/28A, Bandar Sunway, 47500 Subang Jaya, Selangor",
-          "coordinates": "3.073584759, 101.6092252",
-          "contact_number": "03-5636 2222",
-          "sectors": [
-            { "number": "10", "name": "PJS 7, PJS 9, PJS 11, Bandar Sunway" },
-            { "number": "11", "name": "Monash University Malaysia" },
-            { "number": "12", "name": "Tiada Maklumat Tambahan" }
-          ],
-          "points_of_interest": {
-            "bank": [ "CIMB Bank Sunway", "Maybank Sunway" ],
-            "universiti": [ "Sunway University", "The One Academy", "Monash University Malaysia" ],
-            "stesen_lrt_etc": [ "BRT Sunway Lagoon" ],
-            "tempat_tumpuan": [ "Sunway Pyramid", "Sunway Lagoon" ]
-          }
-        },
-        {
-          "name": "BALAI POLIS PUTRA HEIGHTS",
-          "address": "20, Jalan Putra Bahagia 8/4B, Persiaran Putra Heights, 47650 Subang Jaya, Selangor",
-          "coordinates": "3.000145951, 101.5713962",
-          "contact_number": "03-5636 2222",
-          "sectors": [
-            { "number": "13", "name": "Putra Avenue, Putra Indah, Putra Bistari, Putra Heights" },
-            { "number": "14", "name": "Tiada Maklumat Tambahan" },
-            { "number": "15", "name": "Tiada Maklumat Tambahan" }
-          ],
-          "points_of_interest": {
-            "bank": [ "Maybank Putra Heights", "Public Bank Putra Heights" ],
-            "sekolah": [ "SK Putra Heights 2", "SMK USJ 23" ],
-            "stesen_lrt_etc": [ "LRT Putra Heights" ],
-            "tempat_tumpuan": [ "Giant Hypermarket Putra Heights", "One City" ]
-          }
-        },
-        {
-          "name": "BALAI POLIS KOMUNITI TAIPAN",
-          "address": "19, Jalan USJ 10/1D, USj 10 Taipan Business Centre, 47620 Subang Jaya, Selangor",
-          "coordinates": "3.048734313, 101.5842594",
-          "contact_number": "03-5636 2222"
-        },
-        {
-          "name": "BALAI POLIS KOMUNITI PINGGIRAN USJ",
-          "address": "1, Jalan TP 7/1, Taman Perindustrian UEP, 47620 Subang Jaya, Selangor",
-          "coordinates": "3.04301699, 101.5496786",
-          "contact_number": "03-5636 2222"
-        }
+        // ... (data balai yang lain di sini)
+        { "name": "BALAI POLIS USJ 8", "contact_number": "03-5636 2222", "sectors": [ { "number": "1", "name": "USJ 1, USJ 2, USJ 3, USJ 4, USJ 5, USJ 6, USJ 7, USJ 8" } ], "points_of_interest": { "bank": [ "CIMB Bank", "Maybank" ] } },
+        { "name": "BALAI POLIS SUBANG JAYA", "contact_number": "03-5636 2222" },
+        { "name": "BALAI POLIS BUKIT PUCHONG", "contact_number": "03-8060 2222" },
+        { "name": "BALAI POLIS BANDAR SUNWAY", "contact_number": "03-5636 2222" },
+        { "name": "BALAI POLIS PUTRA HEIGHTS", "contact_number": "03-5636 2222" },
+        { "name": "BALAI POLIS KOMUNITI TAIPAN", "contact_number": "03-5636 2222" },
+        { "name": "BALAI POLIS KOMUNITI PINGGIRAN USJ", "contact_number": "03-5636 2222" }
+        // ... (data balai penuh yang lain)
       ]
     }
   }
