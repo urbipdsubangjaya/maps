@@ -1,0 +1,44 @@
+{
+  "sumber_rasmi_polis": [
+    {
+      "nama": "Portal Rasmi PDRM",
+      "url": "https://www.pdrm.gov.my",
+      "jenis": "maklumat_terkini",
+      "keterangan": "Berita rasmi, maklumat organisasi, statistik"
+    },
+    {
+      "nama": "Facebook PDRM Rasmi", 
+      "url": "https://www.facebook.com/pdrmofficial",
+      "jenis": "media_sosial",
+      "keterangan": "Update langsung, operasi terkini, program komuniti"
+    },
+    {
+      "nama": "Twitter Polis Trafik",
+      "url": "https://twitter.com/polistrafik", 
+      "jenis": "info_trafik_live",
+      "keterangan": "Maklumat trafik real-time, saman, kesesakan"
+    }
+  ],
+  "talian_kecemasan": [
+    {
+      "nombor": "999",
+      "perkhidmatan": "Polis, Bomba, Ambulans",
+      "waktu": "24 jam",
+      "kegunaan": "Kecemasan kritikal"
+    },
+    {
+      "nombor": "03-2266-2222", 
+      "perkhidmatan": "Ibu Pejabat Polis Bukit Aman",
+      "waktu": "Waktu pejabat",
+      "kegunaan": "Pertanyaan umum dan maklumat"
+    }
+  ],
+  "aplikasi_kecemasan": [
+    {
+      "nama": "MyDistress",
+      "platform": "Android & iOS",
+      "fungsi": "Alert kecemasan dengan location sharing secara automatik",
+      "keterangan": "Tekan butang panic, lokasi dihantar terus ke pusat kawalan"
+    }
+  ]
+}
