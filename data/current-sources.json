@@ -17,6 +17,18 @@
       "url": "https://twitter.com/polistrafik", 
       "jenis": "info_trafik_live",
       "keterangan": "Maklumat trafik real-time, saman, kesesakan"
+    },
+    {
+      "nama": "Instagram PDRM",
+      "url": "https://www.instagram.com/pdrmofficial",
+      "jenis": "media_sosial",
+      "keterangan": "Infografik keselamatan, kempen kesedaran, aktiviti komuniti"
+    },
+    {
+      "nama": "YouTube PDRM",
+      "url": "https://www.youtube.com/@pdrmofficial",
+      "jenis": "video_rasmi",
+      "keterangan": "Video operasi, dokumentari keselamatan, siaran media"
     }
   ],
   "talian_kecemasan": [
@@ -31,6 +43,24 @@
       "perkhidmatan": "Ibu Pejabat Polis Bukit Aman",
       "waktu": "Waktu pejabat",
       "kegunaan": "Pertanyaan umum dan maklumat"
+    },
+    {
+      "nombor": "15999",
+      "perkhidmatan": "Talian Nur",
+      "waktu": "24 jam",
+      "kegunaan": "Kes penderaan kanak-kanak & keganasan rumah tangga"
+    },
+    {
+      "nombor": "03-2610-1555",
+      "perkhidmatan": "CCID Scam Response Center",
+      "waktu": "Waktu pejabat",
+      "kegunaan": "Aduan penipuan kewangan & scam"
+    },
+    {
+      "nombor": "1-800-88-7722",
+      "perkhidmatan": "Talian Aduan Integriti PDRM",
+      "waktu": "Waktu pejabat",
+      "kegunaan": "Laporan salah laku anggota polis"
     }
   ],
   "aplikasi_kecemasan": [
@@ -39,6 +69,18 @@
       "platform": "Android & iOS",
       "fungsi": "Alert kecemasan dengan location sharing secara automatik",
       "keterangan": "Tekan butang panic, lokasi dihantar terus ke pusat kawalan"
+    },
+    {
+      "nama": "Volunteer Smartphone Patrol (VSP)",
+      "platform": "Android & iOS",
+      "fungsi": "Saluran laporan jenayah & aktiviti mencurigakan",
+      "keterangan": "Pengguna boleh hantar gambar/video terus ke PDRM"
+    },
+    {
+      "nama": "Traffic Malaysia (JPJ/PDRM)",
+      "platform": "Android & iOS",
+      "fungsi": "Maklumat trafik, saman, lokasi sekatan jalan raya",
+      "keterangan": "Integrasi dengan sistem trafik PDRM & JPJ"
     }
   ]
 }
