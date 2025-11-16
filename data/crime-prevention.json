@@ -1,27 +1,45 @@
 {
   "sumber_rasmi": "Tip keselamatan dari PDRM dan pakar keselamatan",
   "keselamatan_rumah": [
-    "🏠 **Sistem Keselamatan** - Pasang CCTV, penggera, sensor pintu/tingkap",
-    "🔒 **Amalan Harian** - Kunci semua pintu/tingkap, jangan tinggal kunci di luar",
-    "👀 **Kewaspadaan** - Kenal jiran, laporkan aktiviti mencurigakan, sertai Rukun Tetangga",
-    "💡 **Pencahayaan** - Pastikan kawasan rumah terang, terutama waktu malam",
-    "📅 **Ketidakhadiran** - Jangan kongsi jadual percutian di media sosial"
+    "🏠 Sistem Keselamatan - Pasang CCTV, penggera, sensor pintu/tingkap",
+    "🔒 Amalan Harian - Kunci semua pintu/tingkap, jangan tinggal kunci di luar",
+    "👀 Kewaspadaan - Kenal jiran, laporkan aktiviti mencurigakan, sertai Rukun Tetangga",
+    "💡 Pencahayaan - Pastikan kawasan rumah terang, terutama waktu malam",
+    "📅 Ketidakhadiran - Jangan kongsi jadual percutian di media sosial"
   ],
   "keselamatan_diri": [
-    "🚶 **Ketika Berjalan** - Elak jalan sunyi, alert dengan persekitaran, jangan gunakan telefon berjalan",
-    "🚗 **Ketika Memandu** - Kunci pintu, parkir tempat terang, periksa kereta sebelum masuk",
-    "📱 **Keselamatan Digital** - Simpan nombor kecemasan 999, kongsi lokasi dengan keluarga",
-    "👥 **Situasi Sosial** - Trust your instincts, elak konfrontasi, cari kawasan ramai jika diikuti"
+    "🚶 Ketika Berjalan - Elak jalan sunyi, alert dengan persekitaran, jangan gunakan telefon berjalan",
+    "🚗 Ketika Memandu - Kunci pintu, parkir tempat terang, periksa kereta sebelum masuk",
+    "📱 Keselamatan Digital - Simpan nombor kecemasan 999, kongsi lokasi dengan keluarga",
+    "👥 Situasi Sosial - Percaya naluri, elak konfrontasi, cari kawasan ramai jika diikuti"
   ],
   "keselamatan_kenderaan": [
-    "🔑 **Amalan Parkir** - Jangan tinggal barang berharga, gunakan steering lock, parkir depan CCTV",
-    "🚨 **Anti-Kecurian** - Pasang alarm, GPS tracker, immobilizer system",
-    "🛠️ **Penyelenggaraan** - Pastikan kenderaan dalam keadaan baik, minyak cukup, tayar sesuai"
+    "🔑 Amalan Parkir - Jangan tinggal barang berharga, gunakan steering lock, parkir depan CCTV",
+    "🚨 Anti-Kecurian - Pasang alarm, GPS tracker, immobilizer system",
+    "🛠️ Penyelenggaraan - Pastikan kenderaan dalam keadaan baik, minyak cukup, tayar sesuai"
   ],
   "pencegahan_jenayah_siber": [
-    "🔐 **Kata Laluan** - Gunakan kata laluan kuat, berbeza setiap akaun, aktifkan 2FA",
-    "📧 **Phishing Awareness** - Jangan klik link mencurigakan, verify sumber email",
-    "💳 **Keselamatan Kewangan** - Monitor akaun bank, gunakan kad kredit dengan chip",
-    "📱 **Keselamatan Media Sosial** - Privacy settings ketat, jangan kongsi lokasi real-time"
+    "🔐 Kata Laluan - Gunakan kata laluan kuat, berbeza setiap akaun, aktifkan 2FA",
+    "📧 Phishing Awareness - Jangan klik link mencurigakan, verify sumber email",
+    "💳 Keselamatan Kewangan - Monitor akaun bank, gunakan kad kredit dengan chip",
+    "📱 Keselamatan Media Sosial - Privacy settings ketat, jangan kongsi lokasi real-time"
+  ],
+  "keselamatan_awam": [
+    "🚨 Elak kawasan berisiko tinggi selepas tengah malam",
+    "👮 Ikut arahan polis semasa operasi keselamatan awam",
+    "🚌 Gunakan pengangkutan awam rasmi, elak teksi/kereta tidak berdaftar",
+    "📢 Sertai program komuniti seperti Rakan Cop & Skim Rondaan Sukarela"
+  ],
+  "keselamatan_pekerjaan": [
+    "🏢 Kawalan akses pejabat dengan kad keselamatan",
+    "🛡️ Latihan kebakaran & kecemasan berkala",
+    "🔒 Simpan dokumen sulit dalam kabinet berkunci",
+    "👀 Laporkan segera aktiviti mencurigakan kepada pengurusan"
+  ],
+  "keselamatan_kanak_kanak": [
+    "👶 Ajarkan nombor kecemasan 999 kepada anak",
+    "🚸 Pastikan anak tidak berjalan sendirian di kawasan sunyi",
+    "📱 Kawal penggunaan gajet & media sosial anak",
+    "🏫 Pastikan sekolah ada sistem keselamatan & rondaan"
   ]
 }
