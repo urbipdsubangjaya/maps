@@ -1,22 +1,232 @@
 {
-  "sumber_rasmi": "Akta-Akta Parlimen, Kanun Keseksaan, Portal PDRM",
+  "sumber_rasmi": "Akta-Akta Parlimen, Portal PDRM, Portal Undang‑Undang Kerajaan Malaysia",
   "akta_utama": [
-    "📚 **Akta Polis 1967 (Akta 344)** - Mengawal selia organisasi, tugas dan kuasa PDRM",
-    "⚖️ **Kanun Acara Jenayah (Akta 593)** - Prosedur siasatan, tangkapan, perbicaraan jenayah",
-    "🔒 **Kanun Keseksaan (Akta 574)** - Mengandungi kesalahan jenayah dan hukuman",
-    "🚗 **Akta Pengangkutan Jalan 1987 (Akta 333)** - Kesalahan trafik dan kenderaan",
-    "💊 **Akta Dadah Berbahaya 1952 (Akta 234)** - Kesalahan dadah dan bahan terlarang"
-  ],
-  "undang_undang_terkini": [
-    "🛡️ **Akta Kawalan Keselamatan 2016 (Akta 799)** - Mengawal aktiviti keselamatan swasta",
-    "💻 **Akta Jenayah Siber** - Bawah Akta Suruhanjaya Komunikasi dan Multimedia 1998",
-    "📱 **Akta Bukit dan Prosedur Perbicaraan Jenayah 2022** - Bukti digital dan siasatan elektronik",
-    "🚨 **Akta Pencegahan Jenayah 1959 (Akta 297)** - Langkah pencegahan bagi penjenayah berulang"
+    {
+      "nama": "Akta Polis 1967 (Akta 344)",
+      "emoji": "📚",
+      "huraian": "Akta utama yang mengawal selia struktur, kuasa, tanggungjawab dan operasi Polis Diraja Malaysia (PDRM). Termasuk peruntukan berkaitan anggota, senjata, rondaan, penyiasatan, kawalan orang ramai dan kerjasama dengan agensi lain.",
+      "sub_bahagian": [
+        {
+          "tajuk": "Struktur & Organisasi",
+          "butiran": [
+            "Pangkat dan jawatan dalam PDRM",
+            "Peranan Ketua Polis Negara dan timbalannya",
+            "Unit-unit khas seperti JSJ, Narkotik, Forensik, Risiko, Trafik"
+          ]
+        },
+        {
+          "tajuk": "Kuasa Polis",
+          "butiran": [
+            "Kuasa menahan dan melakukan soal siasat",
+            "Tangkapan tanpa waran dalam keadaan kecemasan",
+            "Penggunaan senjata api dan kawalan bahan berbahaya",
+            "Tugas penguatkuasaan dan kawalan awam"
+          ]
+        },
+        {
+          "tajuk": "Siasatan & Pendakwaan",
+          "butiran": [
+            "Pengumpulan bukti fizikal dan digital",
+            "Penyediaan kertas pertuduhan",
+            "Hak suspek semasa ditahan: peguam, makluman keluarga, pemeriksaan perubatan",
+            "Pengurusan saksi dan perlindungan saksi jika perlu"
+          ]
+        },
+        {
+          "tajuk": "Operasi Keselamatan & Pencegahan Jenayah",
+          "butiran": [
+            "Operasi rondaan pencegahan jenayah",
+            "SOKONGAN acara besar dan kawalan orang ramai",
+            "Kerjasama dengan agensi lain (Imigresen, JPJ, Kastam, ATIPSOM)",
+            "Pelaksanaan akta pencegahan seperti POCA (Prevention of Crime Act)"
+          ]
+        },
+        {
+          "tajuk": "Latihan & Tadbir Urus",
+          "butiran": [
+            "Latihan asas anggota baru dan kursus lanjutan",
+            "Kod etika dan tatakelakuan anggota",
+            "Standard Prosedur Operasi (SOP) untuk insiden berbeza",
+            "Audit dalaman dan kawalan disiplin anggota"
+          ]
+        }
+      ],
+      "nota_tambahan": [
+        "Akta Polis 1967 adalah tunjang kepada semua kuasa dan operasi PDRM.",
+        "Semua pindaan terkini harus dirujuk melalui portal rasmi kerajaan atau Parlimen.",
+        "Boleh digabungkan dengan undang-undang lain seperti Kanun Keseksaan, Kanun Acara Jenayah, POCA dll."
+      ]
+    },
+    {
+      "nama": "Kanun Acara Jenayah 1967 (Akta 593)",
+      "emoji": "⚖️",
+      "huraian": "Menetapkan prosedur formal siasatan jenayah, tangkapan, pendakwaan, perbicaraan dan rayuan di mahkamah. Ia adalah ‘jalan besar’ bagi sistem jenayah Malaysia dan sangat berkait dengan tugas polis dan pendakwa raya.",
+      "sub_bahagian": [
+        "Prosedur siasatan dan tangkapan",
+        "Penyediaan kertas pertuduhan dan pendakwaan",
+        "Peraturan bukti, saksi dan perbicaraan",
+        "Proses rayuan selepas keputusan mahkamah"
+      ]
+    },
+    {
+      "nama": "Kanun Keseksaan 1976 (Akta 574)",
+      "emoji": "🔒",
+      "huraian": "Mengandungi kesalahan jenayah (seperti bunuh, mencuri, rogol, rasuah) dan hukuman (denda, penjara, gantung). Digunakan setiap hari oleh PDRM dan mahkamah untuk pertuduhan jenayah.",
+      "sub_bahagian": [
+        "Jenayah terhadap badan (bunuh, kecederaan)",
+        "Jenayah harta (kecurian, samun)",
+        "Jenayah seksual",
+        "Jenayah rasuah, dadah dan pengubahan wang haram",
+        "Hukuman: denda, penjara, hukuman mati – bergantung kesalahan"
+      ],
+      "contoh_penggunaan": [
+        "Seksyen 100: pembelaan pertahanan diri hingga boleh menyebabkan kematian — dirujuk dalam laman PDRM. 0"
+      ]
+    },
+    {
+      "nama": "Akta Pengangkutan Jalan 1987 (Akta 333)",
+      "emoji": "🚗",
+      "huraian": "Mengawal trafik jalan raya, pendaftaran lesen, kenderaan, kompaun kesalahan trafik dan prosedur saman / pertuduhan jalan raya.",
+      "sub_bahagian": [
+        "Kesalahan pemanduan: lesen, laju, mabuk",
+        "Pendaftaran dan pemeriksaan kenderaan",
+        "Saman, notis dan tindakan mahkamah terhadap pengguna jalan raya",
+        "Kuasa polis dan penguatkuasa JPJ dalam pemeriksaan kenderaan dan penguatkuasaan secara rondaan"
+      ],
+      "nota": [
+        "Menurut JPJ, pegawai polis dan pegawai JPJ mempunyai kuasa kompaun di bawah Akta ini. 1"
+      ]
+    },
+    {
+      "nama": "Akta Dadah Berbahaya 1952 (Akta 234)",
+      "emoji": "💊",
+      "huraian": "Tindak balas jenayah berkaitan dadah – kawalan import, pengedaran, pemilikan dan penggunaan dadah berbahaya. Melibatkan penyitaan, ujian dadah dan pendakwaan berat.",
+      "sub_bahagian": [
+        "Kawalan bahan mentah seperti opium, kanabis, kokain",
+        "Kawalan over-prepared drugs dan sintetik",
+        "Peraturan pengedaran dan penjualan dadah",
+        "Siasatan, ujian dan pendakwaan jenayah dadah",
+        "Hukuman termasuk denda besar, penjara atau hukuman mati (untuk kes tertentu)"
+      ],
+      "sumber": [
+        "Akta ini adalah bahagian utama dalam penguatkuasaan dadah di Malaysia. 2"
+      ]
+    },
+    {
+      "nama": "Prevention of Crime Act 1959 (POCA) (Akta 297)",
+      "emoji": "🚨",
+      "huraian": "Memberi kuasa untuk pencegahan jenayah berulang. PDRM boleh menahan individu suspek (termasuk ahli organisasi jenayah) tanpa perbicaraan segera dalam tempoh yang dibenarkan oleh undang‑undang untuk tujuan kawalan keselamatan awam. 3",
+      "sub_bahagian": [
+        "Kuasa tangkapan dan tahanan tanpa perbicaraan segera",
+        "Inkuiri dan rekod suspek jenayah berulang",
+        "Perintah pendaftaran suspek dan hukuman pencegahan",
+        "Penguatkuasaan dan semakan kehakiman (judicial review) atas perintah tahanan"
+      ]
+    },
+    {
+      "nama": "Akta Kawalan Keselamatan 2016 (Akta 799)",
+      "emoji": "🛡️",
+      "huraian": "Mengawal aktiviti agensi keselamatan swasta (contoh: pengawal keselamatan), pendaftaran dan pemantauan agensi tersebut. Menjamin bahawa pihak swasta yang urus keselamatan mematuhi standard keselamatan dan undang‑undang.",
+      "sub_bahagian": [
+        "Pendaftaran agensi pengawal keselamatan swasta",
+        "Syarat lesen dan latihan pengawal keselamatan",
+        "Audit dan penguatkuasaan terhadap agensi keselamatan swasta",
+        "Kerjasama PDRM dengan sektor swasta dalam pengurusan keselamatan awam"
+      ]
+    },
+    {
+      "nama": "Akta Suruhanjaya Komunikasi dan Multimedia 1998 (Akta 588)",
+      "emoji": "💻",
+      "huraian": "Menangani isu komunikasi elektronik, penyiaran dan kesalahan siber seperti penyebaran maklumat palsu, ugutan siber dan penyalahgunaan sistem komunikasi.",
+      "sub_bahagian": [
+        "Penyalahgunaan sistem komunikasi (contoh: ugutan, spam, scamming)",
+        "Penguatkuasaan kandungan di platform media sosial",
+        "Kerjasama PDRM dalam siasatan kes jenayah siber",
+        "Prosedur laporan dan tindakan terhadap kandungan berbahaya"
+      ]
+    },
+    {
+      "nama": "Akta Bukti & Prosedur Perbicaraan Jenayah 2022",
+      "emoji": "📱",
+      "huraian": "Memperkenalkan peruntukan untuk bukti elektronik, penyiasatan digital, penggunaan data digital dalam mahkamah serta prosedur moden berkaitan siasatan teknologi.",
+      "sub_bahagian": [
+        "Pengesahan bukti digital (chain of custody, hash, metadata)",
+        "Siasatan forensik digital",
+        "Prosedur penyampaian kertas pertuduhan berasaskan data elektronik",
+        "Perlindungan hak individu dalam siasatan digital"
+      ]
+    },
+    {
+      "nama": "Akta Perlindungan Data Peribadi 2010 (Akta 709)",
+      "emoji": "🟢",
+      "huraian": "Melindungi maklumat peribadi individu: bagaimana data dikumpul, digunakan, dipindahkan dan disimpan. Tegas terhadap pencerobohan data tanpa kebenaran.",
+      "sub_bahagian": [
+        "Definisi data peribadi dan pemproses data",
+        "Hak subjek data (akses, pembetulan, pemadaman)",
+        "Kawalan penggunaan data bagi tujuan penguatkuasaan (contoh: PDRM menggunakan data peribadi dalam siasatan)",
+        "Sanksi atas pencerobohan data dan kegagalan pematuhan akta"
+      ]
+    },
+    {
+      "nama": "Akta Pencegahan Rasuah 2009 (Akta 694)",
+      "emoji": "🛑",
+      "huraian": "Mencegah rasuah di sektor awam dan swasta, termasuk pegawai kerajaan dan anggota PDRM jika terlibat dalam rasuah atau penyalahgunaan kuasa.",
+      "sub_bahagian": [
+        "Kesalahan rasuah: pemberian dan penerimaan rasuah",
+        "Pengubahan wang haram berkaitan rasuah",
+        "Suruhanjaya Pencegahan Rasuah Malaysia (SPRM) – kerjasama dengan PDRM",
+        "Pencegahan melalui pendidikan, etika dan audit"
+      ]
+    },
+    {
+      "nama": "Explosives Act 1957 (Akta 207)",
+      "emoji": "⚡",
+      "huraian": "Mengawal pembuatan, penyimpanan, pengangkutan dan penggunaan bahan letupan dan bahan peledak. Berkaitan dengan kuasa PDRM untuk kawal bahan letupan semasa siasatan atau penguatkuasaan. 4",
+      "sub_bahagian": [
+        "Definisi bahan letupan dan berbahaya",
+        "Lesen untuk pengendalian bahan letupan",
+        "Siasatan dan rampasan bahan peledak",
+        "Penguatkuasaan dan hukuman jika melanggar peraturan"
+      ]
+    },
+    {
+      "nama": "Corrosive & Explosive Substances & Offensive Weapons Act 1958 (Akta 357)",
+      "emoji": "🧨",
+      "huraian": "Menetapkan penalti untuk pemilikan bahan menghakis (korosif), bahan letupan dan senjata berbahaya. Penting untuk penguatkuasaan PDRM dalam operasi senjata dan kawalan bahan berbahaya. 5",
+      "sub_bahagian": [
+        "Poses bahan korosif dan bahan peledak",
+        "Kawalan senjata ofensif (pisau, senjata berbahaya)",
+        "Peraturan rampasan dan pemeriksaan senjata",
+        "Hukuman atas pemilikan haram"
+      ]
+    },
+    {
+      "nama": "Sedition Act 1948 (Akta 15)",
+      "emoji": "📢",
+      "huraian": "Mencegah hasutan terhadap kerajaan, raja atau institusi negara. Polisi PDRM boleh ambil tindakan di bawah akta ini dalam kes penghinaan, ugutan, hasutan melalui media tradisional dan digital. 6",
+      "sub_bahagian": [
+        "Definisi hasutan (seditious tendency)",
+        "Prosedur pendakwaan atas hasutan",
+        "Kuasa mahkamah dalam menyekat penerbitan hasutan",
+        "Tindakan atas penerbitan hasutan di platform elektronik"
+      ]
+    }
   ],
   "prosedur_undang_undang": [
-    "📞 **Prosedur Laporan Polis** - Boleh dibuat di balai atau online melalui eLaporan",
-    "⚖️ **Proses Siasatan** - Laporan → Siasatan → Tangkapan (jika bukti cukup) → Pendakwaan",
-    "🛡️ **Hak Orang Ditahan** - Hubungi peguam, maklum keluarga, pemeriksaan perubatan",
-    "📋 **Prosedur Mahkamah** - Pertuduhan → Perbicaraan → Keputusan → Rayuan"
+    "📞 Laporan Polis – boleh di balai atau melalui e‑Laporan PDRM",
+    "🕵️‍♂️ Proses Siasatan – laporan → pemeriksaan → tangkapan jika perlu → kertas pertuduhan",
+    "🛡️ Hak Suspek – mendapat peguam, maklum keluarga, pemeriksaan perubatan",
+    "🔐 Prosedur Tahanan POCA – tahanan pencegahan tanpa perbicaraan segera di bawah Akta Pencegahan Jenayah",
+    "📋 Perbicaraan di Mahkamah – pertuduhan, perbicaraan, rayuan",
+    "📱 Prosedur Bukti Digital – pengendalian bukti elektronik, metadata, chain of custody di bawah Akta Bukti & Prosedur 2022",
+    "🚔 Operasi Trafik – pemeriksaan jalan raya, kawalan jalur, saman dan pertuduhan menurut Akta Pengangkutan Jalan",
+    "🛂 Kawalan Keselamatan Swasta – pemeriksaan lesen agensi keselamatan swasta, audit di bawah Akta Kawalan Keselamatan",
+    "💣 Kawalan Senjata & Bahan Letupan – prosedur rampasan, penguatkuasaan dan siasatan berkaitan senjata dan bahan peledak"
+  ],
+  "nota_tambahan": [
+    "Semua akta termasuklah pindaan terkini perlu disemak semula di laman web rasmi Parlimen atau KDN.",
+    "Pastikan versi undang‑undang adalah versi terkini sebelum buat rujukan dalam dokumen AI / sistem.",
+    "Emoji boleh dikekalkan atau dibuang bergantung kepada keperluan format fail Github atau sistem AI.",
+    "Gabungkan fail JSON ini dengan modul lain (misalnya bahagian tugas / duty / operasi) untuk sistem AI komprehensif."
   ]
 }
