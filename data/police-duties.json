@@ -1,0 +1,29 @@
+{
+  "sumber_rasmi": "Akta Polis 1967, Portal Rasmi PDRM",
+  "tugas_asas_polis": [
+    "👮 **Menjaga keselamatan awam** - Tanggungjawab utama bawah Seksyen 3(3) Akta Polis 1967",
+    "🛡️ **Mencegah jenayah** - Melalui operasi rondaan, Ops Selamat, program komuniti",
+    "⚖️ **Menangkap pesalah** - Kuasa tangkapan bawah Seksyen 15(1) Akta Polis 1967", 
+    "🔍 **Menyiasat kes jenayah** - Proses siasatan mengikut Kanun Acara Jenayah",
+    "🚦 **Mengawal trafik** - Bawah Akta Pengangkutan Jalan 1987",
+    "🆘 **Memberi bantuan kecemasan** - Melalui talian 999 dan balai polis",
+    "📋 **Menguatkuasakan undang-undang** - Semua undang-undang kecil dan utama"
+  ],
+  "kuasa_polis": [
+    "⚖️ **Kuasa menahan tanpa waran** - Bawah Seksyen 117 Kanun Acara Jenayah untuk kesalahan boleh tangkap",
+    "🔍 **Kuasa menyiasat** - Rakam kenyataan, panggil saksi bawah Seksyen 107 KAJ",
+    "🚗 **Kuasa merampas** - Kenderaan/harta disyaki dalam jenayah bawah Seksyen 435 KAJ",
+    "🏠 **Kuasa masuk premis** - Untuk tangkap suspek/cari bukti dalam keadaan tertentu",
+    "📱 **Kuasa siasatan digital** - Bawah Akta Bukit dan Prosedur Perbicaraan Jenayah 2022"
+  ],
+  "struktur_pdrm": [
+    "👑 **Ketua Polis Negara (KPN)** - Peringkat tertinggi PDRM",
+    "🏙️ **Ibu Pejabat Polis Kontinjen (IPK)** - Peringkat negeri", 
+    "🏘️ **Ibu Pejabat Polis Daerah (IPD)** - Peringkat daerah (cth: IPD Subang Jaya)",
+    "🏠 **Balai Polis** - Peringkat kawasan dan komuniti",
+    "🚔 **Unit Patrol** - Rondaan harian & tindak balas pantas",
+    "🛡️ **Unit Siasatan Jenayah** - Siasat kes jenayah serius",
+    "🚦 **Unit Trafik** - Kawal keselamatan jalan raya",
+    "💻 **Unit Jenayah Siber** - Tangani kes siber dan digital"
+  ]
+}
