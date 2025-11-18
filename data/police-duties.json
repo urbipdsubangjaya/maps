@@ -20,7 +20,7 @@
     "Kuasa merampas – barang/kenderaan disyaki (KAJ)",
     "Kuasa masuk premis – dalam keadaan dibenarkan undang-undang",
     "Kuasa siasatan digital – forensik digital & data elektronik",
-    "Kuasa mengawal rusuhan & perhimpunan awam – FRU, KDN/KA",
+    "Kuasa mengawal rusohan & perhimpunan awam – FRU, KDN/KA",
     "Kuasa mengawal sempadan & imigresen – kerjasama PGA & Imigresen",
     "Kuasa mengawal senjata api – Akta Senjata 1960",
     "Kuasa mengeluarkan saman & kompaun – trafik & kesalahan kecil",
@@ -107,14 +107,14 @@
           "peranan": [
             "Respon pantas di kawasan taman perumahan & komersial",
             "Rondaan mobiliti tinggi di kawasan sempit",
-            "Kehadiran cegah jenayah ‘visible policing’"
+            "Kehadiran cegah jenayah 'visible policing'"
           ],
           "kenderaan": "Modenas / Yamaha / Kawasaki 250R"
         },
         "mpv_unit_kereta_peronda": {
           "peranan": [
             "Respon kecemasan 999",
-            "Penglibatan ‘crime hotspot patrol’",
+            "Penglibatan 'crime hotspot patrol'",
             "Tindak awal sebelum JSJ tiba di tempat kejadian"
           ],
           "kenderaan": "Proton Preve / Honda Civic / Toyota Hilux"
@@ -159,4 +159,6 @@
   },
   "fakta_sejarah": {
     "penubuhan": "1807 – Civil Affairs Police Force",
-    "penjenamaan": "1963 – Polis
+    "penjenamaan": "1963 – Polis Diraja Malaysia"
+  }
+}
